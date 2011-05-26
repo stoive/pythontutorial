@@ -1,0 +1,268 @@
+<html>
+<head>
+<title>Lesson 11 - Exception Handling</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="keywords" content="civilization,civ2,civ3,civ4,civilization iii,civilization ii,civilization iv,mod,python,xml,script,install" />
+<meta name="description" content="A Python and XML tutorial aimed at Civilization IV modding" />
+</head><link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+
+<body bgcolor="Teal">
+<div align="center" class="SidePanel">
+<div align="left" class="PaddingBig">
+<div class="MenuSection">
+<h1>Sthurlow.com</h1>
+<h2>Civilization IV Python tutorial</h2><h3>The Python Tutorial</h3>
+<p>The original sthurlow.com python tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson01/">Installing Python</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson02/">Very Simple Programs</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson03/">Variables, Scripts</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson04/">Loops, Conditionals</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson05/">Functions</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson06/">Tuples, Lists, Dictionaries</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson07/">for Loop</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson08/">Classes</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson09/">Importing Modules</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson10/">File I/O</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson11/">Error Handling</a></div>
+</p>
+<h3>The Civ4 Programming Tutorial</h3>
+<p>All new Civ4 programming tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/">Lesson 1 (not released)</a></div>
+</p>
+<br /><br /></div></div>
+</div>
+
+<div align="center" class="TextPanel">
+<div align="left" class="Padding"><h2>Exception Handling</h2>
+
+<h3>Introduction</h3>
+<p>If you haven't seen them before, you're not trying hard enough. What are they? Errors. Exceptions. Problems. Know what I'm talking about? I got it with this program:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 1 - buggy program</div>
+<div align="left" class="CodeBody">
+<pre>
+def menu(list, question):
+    for entry in list:
+        print 1 + list.index(entry),
+        print ") " + entry
+
+    return input(question) - 1
+
+# running the function
+# remember what the backslash does
+answer = menu(['A','B','C','D','E','F','H','I'],\
+'Which letter is your favourite? ')
+
+print 'You picked answer ' + (answer + 1)
+</pre>
+</div>
+</div><p>This is just an example of the menu program we made earlier. Appears perfectly fine to me. At least until when I first tried it. Run the program, and what happens?</p>
+
+<h3>Bugs - Human Errors</h3>
+<p>The most common problems with your code are of your own doing. Sad, but true. What do we see when we try to run our crippled program?</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 2 - error message</div>
+<div align="left" class="CodeBody">
+<pre>
+Traceback (most recent call last):
+  File "/home/steven/errortest.py", line 8, in -toplevel-
+    answer = menu(< I'll snip it here >)
+  File "/home/steven/errortest.py", line 6, in menu
+    return raw_input(question) - 1
+TypeError: unsupported operand type(s) for -: 'str' and 'int'
+</pre>
+</div>
+</div><p>Say what? What python is trying to tell you (but struggling to find a good word for it) is that you can't join a string of letters and a number into one string of text. Let's go through the error message and have a look at how it tells us that:</p>
+
+<ul><li><tt>File "/home/steven/errortest.py", line 8, in -toplevel-</tt> tells us a couple of things. File "/home/steven/errortest.py" tells us which file the error occured in. This is useful if you use lots of modules that refer to each other. line 8, in <tt>-toplevel-</tt> tells us that it is in line # 8 of the file, and in the top level (that is, no indentation).</li>
+<li><tt>answer = menu(['A','B','C','D','E','F','H','I'],'Which letter is your favourite? ')</tt> duplicates the code where the error is.</li>
+<li>Since this line calls a function, the next two lines describe where in the function the error occured.</li>
+<li><tt>TypeError: unsupported operand type(s) for -: 'str' and 'int'</tt> tells you the error. In this case, it is a 'TypeError', where you tried to subtract incompatible variables.</li>
+
+</ul><p>There are muliple file and code listings for a single error, because the error occured with the interaction of two lines of code (e.g. when using a function, the error occured on the line where the function was called, AND the line in the function where things went wrong).</p>
+<p>Now that we know what the problem is, how do we fix it. Well, the error message has isolated where the problem is, so we'll only concentrate on that bit of code.</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 3 - calling the menu function</div>
+<div align="left" class="CodeBody">
+<pre>
+answer = menu(['A','B','C','D','E','F','H','I'],\
+'Which letter is your favourite? ')
+</pre>
+</div>
+</div><p>This is a call to a function. The error occured in the function in the following line</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 4 - Where it went wrong</div>
+<div align="left" class="CodeBody">
+<pre>
+return raw_input(question) - 1
+</pre>
+</div>
+</div><p>raw_input always returns a string, hence our problem. Let's change it to input(), which, when you type in a number, it returns a number:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 5 - Fixing it</div>
+<div align="left" class="CodeBody">
+<pre>
+return input(question) - 1
+</pre>
+</div>
+</div><p>Bug fixed!</p>
+
+<h3>Exceptions - Limitations of the Code</h3>
+<p>OK, the program works when you do something normal. But what if you try something weird? Type in a letter (lets say, 'm') instead of a number? Whoops!</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 6 - Another error message</div>
+<div align="left" class="CodeBody">
+<pre>
+Traceback (most recent call last):
+  File "/home/steven/errortest.py", line 8, in -toplevel-
+    answer = menu(< I'll snip it here >)
+  File "/home/steven/errortest.py", line 6, in menu
+    return input(question) - 1
+  File "<string>", line 0, in -toplevel-
+NameError: name 'g' is not defined
+</pre>
+</div>
+</div><p>What is this telling us? There are two code listings - one in line 8, and the other in line 6. What this is telling us is that when we called the menu function in line 8, an error occured in line 6 (where we take away 1). This makes sense if you know what the <tt>input()</tt> function does - I did a bit of reading and testing, and realised that if you type in a letter or word, it will assume that you are mentioning a variable! so in line 6, we are trying to take 1 away from the variable 'm', which doesn't exist.</p>
+<p>Have no clue on how to fix this? One of the best and easiest ways is to use the <tt>try</tt> and <tt>except</tt> operators.</p>
+<p>Here is an example of <tt>try</tt> being used in a program:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 7 - The try operator</div>
+<div align="left" class="CodeBody">
+<pre>
+try:
+    function(world,parameters)
+except:
+    print world.errormsg
+</pre>
+</div>
+</div><p>This is an example of a really messy bit of code that I was trying to fix. First, the code under <tt>try:</tt> is run. If there is an error, the compiler jumps to the except section and prints <tt>world.errormsg</tt>. The program doesn't stop right there and crash, it runs the code under <tt>except:</tt> then continues on.</p>
+<p>Lets try that where the error occured in our code (line 6). The menu function now is:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 8 - testing our fix</div>
+<div align="left" class="CodeBody">
+<pre>
+def menu(list, question):
+    for entry in list:
+        print 1 + list.index(entry),
+        print ") " + entry
+    try:
+        return input(question) - 1
+    except NameError:
+        print "Enter a correct number"
+</pre>
+</div>
+</div><p>Try entering a letter when you're asked for a number and see what happens. Dang. We fixed one problem, but now it has caused another problem furthur down the track. This happens <i>all the time</i>. (Sometimes you end up going around in circles, because your code is an absolute mess). Let's have a look at the error:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 9 - Yet another error message</div>
+<div align="left" class="CodeBody">
+<pre>
+Traceback (most recent call last):
+  File "/home/steven/errortest.py", line 12, in -toplevel-
+    print 'You picked answer', (answer + 1)
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+</pre>
+</div>
+</div><p>What has happened this time is that the menu function has returned no value - it only printed an error message. When, at the end of the program, we try to print the returned value plus 1, what is the returned value? There is no returned value? So what is 1 + ... well, we have no clue what we are adding 1 to!</p>
+<p>We could just return any old number, but that would be lying. What we really should to is rewrite the program to cope with this exception. With what? <tt>try</tt> and <tt>except</tt>!</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 10 - yet another solution</div>
+<div align="left" class="CodeBody">
+<pre>
+# from when we finish defining the function
+answer = menu(['A','B','C','D','E','F','H','I'],\
+'Which letter is your favourite? ')
+try:
+    print 'You picked answer', (answer + 1)
+    # you can put stuff after a comma in the 'print' statement,
+    # and it will continue as if you had typed in 'print' again
+except:
+    print '\nincorrect answer.'
+    # the '\n' is for formatting reasons. Try without it and see.
+</pre>
+</div>
+</div><p>Problem solved again.</p>
+
+<h3>Endless Errors</h3>
+<p>The approach that we used above is <i>not</i> recomended. Why? Because apart from the error that we know can happen, <tt>except:</tt> catches every other error too. What if this means we never see an error that could cause problems down the track? If <tt>except:</tt> catches every error under the sun, we have no hope of controlling what errors we deal with, and the other ones that we want to see, because so far we haven't dealt with them. We also have little hope of dealing with more than one type of error in the same block of code. What should one do, when all is hopeless? Here is an example of code with such a situation:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 11 - The Problem We Face</div>
+<div align="left" class="CodeBody">
+<pre>
+print 'Subtraction program, v0.0.1 (beta)'
+a = input('Enter a number to subtract from > ')
+b = input('Enter the number to subtract > ')
+print a - b
+</pre>
+</div>
+</div><p>Ok, you enter your two numbers and it works. Enter a letter, and it gives you a <tt>NameError</tt>. Lets rewrite the code to deal with a <tt>NameError</tt> only. We'll put the program in a loop, so it restarts if an error occurs (using <tt>continue</tt>, which starts the loop from the top again, and <tt>break</tt>, which leaves the loop):</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 12 - Dealing With NameError</div>
+<div align="left" class="CodeBody">
+<pre>
+print 'Subtraction program, v0.0.2 (beta)'
+loop = 1
+while loop == 1:
+    try:
+        a = input('Enter a number to subtract from > ')
+        b = input('Enter the number to subtract > ')
+    except NameError:
+        print "\nYou cannot subtract a letter"
+    continue
+    print a - b
+    try:
+        loop = input('Press 1 to try again > ')
+    except NameError:
+        loop = 0
+</pre>
+</div>
+</div><p>Here, we restarted the loop if you typed in something wrong. In line 12 we assumed you wanted to quit the program if you didn't press 1, so we quit the program.</p>
+<p>But there are still problems. If we leave something blank, or type in an unusual character like <tt>!</tt> or <tt>;</tt>, the program gives us a <tt>SyntaxError</tt>. Lets deal with this. When we are asking for the numbers to subtract, we will give a different error message. When we ask to press 1, we will again assume the user wants to quit.</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 13 - Now, Dealing With SyntaxError</div>
+<div align="left" class="CodeBody">
+<pre>
+print 'Subtraction program, v0.0.3 (beta)'
+loop = 1
+while loop == 1:
+    try:
+        a = input('Enter a number to subtract from > ')
+        b = input('Enter the number to subtract > ')
+    except NameError:
+        print "\nYou cannot subtract a letter"
+	continue
+    except SyntaxError:
+        print "\nPlease enter a number only."
+	continue
+    print a - b
+    try:
+        loop = input('Press 1 to try again > ')
+    except (NameError,SyntaxError):
+        loop = 0
+</pre>
+</div>
+</div><p>As you can see, you can have multiple <tt>except</tt> uses, each dealing with a different problem. You can also have one <tt>except</tt> to deal with multiple exceptions, by putting them inside parentheses and seperating them with commas.</p>
+<p>Now we have a program that is very difficult, to crash by an end user. As a final challenge, see if you can crash it. There is one way I have thought of - if you read the chapter on Human Error carefully, you might know what it is.</p>
+
+<h3>Conclusion, Sweet Conclusion</h3>
+<p>There you go! The final lesson on python! Finally we are finished. That is, unless you want to also know XML. Civilization IV and XML don't really interact directly, so we won't worry about that for the moment - plus, some great and very helpful posters on <a href="http://forums.civfanatics.com/">the CFC Civ4 C&C Forum</a> (take that!) have already helped you out there. There will be an introduction or two to Civilization IV python specifics, and then you should be on your way. See you there! </p>
+<p>For those of you not doing this for the gaming, thanks for reading. May your pythoning be forever successful, and if you need to find anything out, try the <a href="http://www.python.org">Python  home page</a> for an exhaustive resource on everything from 2D game programming, to multithreading, to XML parsing. There really is a huge amount of stuff you can now do, and the best way to learn, is to go and find out.</p>
+<p>Thanks to all,</p>
+<p>sthurlow.com</p>
+
+</div></div></body>
+</html>

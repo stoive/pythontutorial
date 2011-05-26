@@ -1,0 +1,311 @@
+<html>
+<head>
+<title>Lesson 7 - Tuples, Lists, and Dictionaries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="keywords" content="civilization,civ2,civ3,civ4,civilization iii,civilization ii,civilization iv,mod,python,xml,script,install" />
+<meta name="description" content="A Python and XML tutorial aimed at Civilization IV modding" />
+</head><link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+
+<body bgcolor="Teal">
+<div align="center" class="SidePanel">
+<div align="left" class="PaddingBig">
+<div class="MenuSection">
+<h1>Sthurlow.com</h1>
+<h2>Civilization IV Python tutorial</h2><h3>The Python Tutorial</h3>
+<p>The original sthurlow.com python tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson01/">Installing Python</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson02/">Very Simple Programs</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson03/">Variables, Scripts</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson04/">Loops, Conditionals</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson05/">Functions</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson06/">Tuples, Lists, Dictionaries</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson07/">for Loop</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson08/">Classes</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson09/">Importing Modules</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson10/">File I/O</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson11/">Error Handling</a></div>
+</p>
+<h3>The Civ4 Programming Tutorial</h3>
+<p>All new Civ4 programming tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/">Lesson 1 (not released)</a></div>
+</p>
+<br /><br /></div></div>
+</div>
+
+<div align="center" class="TextPanel">
+<div align="left" class="Padding"><h2>Tuples, Lists, and Dictionaries</h2>
+
+<h3>Introduction</h3>
+<p>Well, in the first lesson about loops, I said I would put off teaching you the <tt>for</tt> loop, until we had reached lists. Well, here it is!</p>
+
+<h3>The 'for' Loop</h3>
+<p>Basically, the <tt>for</tt> loop does something <i>for</i> every value in a list. The way it is set out is a little confusing, but otherwise is very basic. Here is an example of it in code:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 1 - The for Loop</div>
+<div align="left" class="CodeBody">
+<pre>
+# Example 'for' loop
+# First, create a list to loop through:
+newList = [45, 'eat me', 90210, "The day has come, the walrus said, \
+to speak of many things", -67]
+
+# create the loop:
+# Goes through newList, and seqentially puts each bit of information
+# into the variable value, and runs the loop
+for value in newList:
+    print value
+</pre>
+</div>
+</div><p>As you see, when the loop executes, it runs through all of the values in the list mentioned after 'in'. It then puts them into <tt>value</tt>, and executes through the loop, each time with <tt>value</tt> being worth something different. Let's see it a again, in a classic cheerleading call that we all know:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 2 - A for Loop Example</div>
+<div align="left" class="CodeBody">
+<pre>
+# cheerleading program
+word = raw_input("Who do you go for? ")
+
+for letter in word:
+    call = "Gimme a " + letter + "!"
+    print call
+    print letter + "!"
+
+print "What does that spell?"
+print word + "!"
+</pre>
+</div>
+</div><p>A couple of things you've just learnt:</p>
+
+<ul><li>As you see, strings (remember - strings are lines of text) are just lists with lots of characters.</li>
+<li>The program went through each of the letters (or values) in word, and it printed them onscreen.</li>
+
+</ul><p>And that is all there is to the <tt>for</tt> loop.</p>
+
+<h3>Making a Menu Function</h3>
+<p>Now to the business end of the lesson. Lets start writing programs. So far we have learnt variables, lists, loops, and functions. That is pretty much all we need for quite a bit of programming. So let's set ourselves a task.</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 3 - A menu function</div>
+<div align="left" class="CodeBody">
+<pre>
+# THE MENU FUNCTION
+# The program asks for a string with all the menu options in it,
+# and a text string asking a question.
+# make sure every menu entry is unique.
+
+def menu(list, question):
+    for entry in list:
+        print 1 + list.index(entry),
+        print ") " + entry
+
+    return input(question) - 1
+
+# def menu(list, question): is telling the function to
+# ask for two bits of information:
+# A list of all the menu entries,
+# and the question it will ask when all the options have been printed
+
+# for entry in list: is pretty much saying;
+#'for every entry in the list, do the following:'
+
+# print list.index(entry) + 1 uses the .index() function to find
+# where in the list the entry is in. print function then prints it
+# it adds 1 to make the numbers more intelligable.
+
+# print ") " + entry prints a bracket, and then the entry name
+
+# after the for loop is finished, input(question) - 1 asks the question,
+# and returns the value to the main program (minus 1, to turn it back to
+# the number the computer will understand).
+</pre>
+</div>
+</div><p>That wasn't very difficult, was it? the actual program only took up five lines - this is the wonder of how much we have learnt so far! All my comments take up sixteen lines - more than three times the program length. It is a good idea to comment your programs extensively. Remember that if you are going to be publishin gyour code open-source, there are going to be a lot of people checking out the code that you have written. We'll see the function we just wrote in our first example program.</p>
+
+<h3>Our First 'Game'</h3>
+<p>What will our first example program be? How about a (very) simple text adventure game? Sounds like fun! It will only encompass one room of a house, and will be extremely simple. There will be five things, and a door. In one of the five things, is a key to the door. You need to find the key, then open the door. I will give a plain-english version first, then do it in python:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 4 - Plain-english version of code</div>
+<div align="left" class="CodeBody">
+<pre>
+#Plain-english version of our 'game'
+
+Tell the computer about our menu function
+
+Print a welcoming message, showing a description of the room.
+We will give the player six things to look at: pot plant, painting,\
+ vase, lampshade, shoe, and the door
+
+Tell the computer that the door is locked
+Tell the computer where the key is
+
+present a menu, telling you what things you can 'operate':
+    It will give you the six options
+    It will ask the question "what will you look at?"
+
+if the user wanted to look at:
+    pot plant:
+        If the key is here, give the player the key
+        otherwise, tell them it isn't here
+    painting:
+        same as above
+    etc.
+    door:
+        If the player has the key, let them open the door
+        Otherwise, tell them to look harder
+
+Give the player a well done message, for completing the game.
+</pre>
+</div>
+</div><p>From this, we can write a real program. Ready? Here it is (skip typing the comments):</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 5 - Text Adventure Game</div>
+<div align="left" class="CodeBody">
+<pre>
+#TEXT ADVENTURE GAME
+
+#the menu function:
+def menu(list, question):
+    for entry in list:
+        print 1 + list.index(entry),
+        print ") " + entry
+
+    return input(question) - 1
+
+#Give the computer some basic information about the room:
+items = ["pot plant","painting","vase","lampshade","shoe","door"]
+
+#The key is in the vase (or entry number 2 in the list above):
+keylocation = 2
+
+#You haven't found the key:
+keyfound = 0
+
+loop = 1
+
+#Give some introductary text:
+print "Last night you went to sleep in the comfort of your own home."
+
+print "Now, you find yourself locked in a room. You don't know how"
+print "you got there, or what time it is. In the room you can see"
+print len(items), "things:"
+for x in items:
+    print x
+print ""
+print "The door is locked. Could there be a key somewhere?"
+#Get your menu working, and the program running until you find the key:
+while loop == 1:
+    choice = menu(items,"What do you want to inspect? ")
+    if choice == 0:
+        if choice == keylocation:
+            print "You found a small key in the pot plant."
+
+            print ""
+            keyfound = 1
+        else:
+            print "You found nothing in the pot plant."
+            print ""
+    elif choice == 1:
+        if choice == keylocation:
+            print "You found a small key behind the painting."
+            print ""
+
+            keyfound = 1
+        else:
+            print "You found nothing behind the painting."
+            print ""
+    elif choice == 2:
+        if choice == keylocation:
+            print "You found a small key in the vase."
+            print ""
+            keyfound = 1
+        else:
+            print "You found nothing in the vase."
+
+            print ""
+    elif choice == 3:
+        if choice == keylocation:
+            print "You found a small key in the lampshade."
+            print ""
+            keyfound = 1
+        else:
+            print "You found nothing in the lampshade."
+            print ""
+
+    elif choice == 4:
+        if choice == keylocation:
+            print "You found a small key in the shoe."
+            print ""
+            keyfound = 1
+        else:
+            print "You found nothing in the shoe."
+            print ""
+    elif choice == 5:
+        if keyfound == 1:
+            loop = 0
+            print "You put in the key, turn it, and hear a click"
+
+            print ""
+        else:
+            print "The door is locked, you need to find a key."
+            print ""
+
+# Remember that a backslash continues
+# the code on the next line
+
+print "Light floods into the room as \
+you open the door to your freedom."
+</pre>
+</div>
+</div><p>Well, a very simple, but fun, game. Don't get daunted by the amount of code there, 53 of the lines are just the 'if' statements, which is the easiest thing to read there (Once you comprehend all the indentation. Soon you'll make your own game, and you can make it as simple (or as complex) as you like. I'll post quite a few, later.</p>
+
+<h3>Making the game better</h3>
+<p>The fist question you should ask is "does this program work?". The answer here is yes. Then you should ask "does this program work <i>well?</i>" - not quite. The menu() function is great - it reduces a lot of typing. The 'while' loop that we have, however, is a little messy - four levels of indents, for a simple program. We can do better!</p>
+<p>Now, this will become much MUCH more straightforward when we introduce classes. But that will have to wait. Until then, let's make a function that reduces our mess. It we will pass two things to it - the menu choice we made, and the location of the key. It will return one thing - whether or not the key has been found. Lets see it:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 6 - Creating an inspect function</div>
+<div align="left" class="CodeBody">
+<pre>
+def inspect(choice,location):
+    if choice == location:
+        print ""
+        print "You found a key!"
+        print ""
+        return 1
+    else:
+        print ""
+        print "Nothing of interest here."
+        print ""
+        return 0
+</pre>
+</div>
+</div><p>Now the main program can be a little simpler. Let's take it from the while loop, and change things around:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 7 - The new game</div>
+<div align="left" class="CodeBody">
+<pre>
+while loop == 1:
+    keyfound = inspect(menu(items,"What do you want to inspect? "),keylocation)
+    if keyfound == 1:
+        print "You put the key in the lock of the door, and turn it. It opens!"
+        loop = 0
+
+print "Light floods into the room, \
+as you open the door to your freedom."
+</pre>
+</div>
+</div><p>Now the program becomes massively shorter - from a cumbersome 83 lines, to a very shapely 50 lines! Of course, you lose quite a bit of versatility - all the items in the room do the same thing. You automatically open the door when you find the key. The game becomes a little less interesting. It also becomes a little harder to change.</p>
+
+<h3>conclusion</h3>
+<p>Now I said you would write some programs now. Here is your chance! Your task, if you chose to accept it, is to post a better text adventure game. You can use any of the code I have given you here. Remember to check back on previous lessons we have done - they are priceless tools. Do a search for some simple text adventure games - if you find some nice, fun text adventure games, have a look at them.</p>
+<p>Thanks to all,</p>
+<p>sthurlow.com</p>
+
+</div></div></body>
+</html>

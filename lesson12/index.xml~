@@ -1,0 +1,33 @@
+<tutorial>
+<lesson number="12" title="Programming a GUI" author="Steven Thurlow">
+    <content>
+		<section title="What is a GUI?">
+			<p>It's been a while since I wrote my last lesson, and Civilization IV is much closer than it was before! I figured I'd write a tutorial on how to create a graphical user interface (or GUI). But what's a GUI (pronounced 'gooey')? Put simply, the GUI of a program are its buttons, scroll bars, check boxes, clickables, readables, lookables, and anything you are able to see. It is graphical, as opposed to what we are used to in python, which employs simple text, in a command-line interface (like good 'ol MSDOS). To make programs for the rest of the non-computer-knowledgeable people out there, you need a GUI.</p>
+		</section>
+		<section title="What is WxPython?">
+			<p>go to the <link dest="http://www.wxpython.org/" text="WxPython website" />, and you will probably find an introduction that means very little to most people. WxPython is pretty much a tool for creating GUIs that will work on any computer with Windows or Linux. It keeps the look and feel of the programs around it, so a program written in WxPython will look like Windows XP in Windows XP, Windows 98 in Windows 98, and in linux will look like whatever you have hacked together at the time.</p>
+		</section>
+		<section title="Getting started">
+			<p>The first thing you should do is <link dest="http://www.wxpython.org/download.php" text="Download WxPython" />, and follow the prompts in running your download to install it. WxPython is different in that it doesn't come with python by default, so you have to go get it yourself.</p>
+			<p>Got it installed? Good. Now try these commands in the IDLE shell (that &gt;&gt;&gt; thing):</p>
+			<code title="WxWindowy goodness">
+				<l>import wx</l>
+				<l>app = wx.PySimpleApp()</l>
+				<l>frame = wx.Frame(None, -1, "Hello, World!")</l>
+				<l>frame.Show(True)</l>
+				<l>app.MainLoop()</l>
+			</code>
+			<p>Now a window with the title "Hello, World!" pops up. Cool! Notice that until you typed <tt>app.MainLoop()</tt>, the program pretty much hangs? In my messing around, Windows thought the program wasn't responding. Although the window was displaying, the main program hadn't started.</p>
+			<p>Now what did each line do?</p>
+			<list state="unordered">
+				<item><tt>import wx</tt> imported the wxpython module. Not much left to say about it, is there?</item>
+				<item><tt>app = wx.PySimpleApp()</tt> creates the application that will run the code behind the GUI that you are going to see. More on this later.</item>
+				<item><tt>frame = wx.Frame(None, -1, "Hello, World!")</tt> creates a frame for your program. That is, the border and title bar.</item>
+				<item><tt>frame.Show(True)</tt> tells the frame that we created a line above whether it should show or not. Try typing <tt>frame.Show(False)</tt>, or flicking in between the two.</item>
+				<item><tt>app.MainLoop()</tt> starts the application that we created above, which handles everything behind the GUI. There aint much happening here yet.</item>
+			</list>
+			<p>It is important to know what a window is when talking about programming. Probably in some vain attempt at making less programmers in this world, a window to a programmer is different to what a window is to the user. To the programmer, a window is anything that is visible onscreen. The frame we created is a window. If we were to add a button, it would be a window, too. It has all the properties of the basic window, plus a few others, like its click-ability. A drop-down list is a window, with even more properties than a button. But in the end, everything is based off this basic 'window', but with a few things of its own added. You could say that buttons and scroll bars are 'inhereted' from the basic window.</p>
+		</section>
+    </content>
+</lesson>
+</tutorial>

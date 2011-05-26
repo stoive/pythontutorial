@@ -1,0 +1,168 @@
+<document>
+<lesson number="2" title="Very simple 'programs'" author="Steven Thurlow" style="../../stylesheet.css">
+   <content>
+		<section title="Introduction">
+			<p>OK! We have python installed, now what? Well, we program!</p>
+			<p>And it is that simple (at least for now). Python makes it easy to run single lines of code - one-liner programs. Lets give it a go.</p>
+		</section>
+		<section title="Opening IDLE">
+			<p>Go to the start menu, find Python, and run the program labelled 'IDLE' (Stands for Integrated Development Environment.</p>
+			<p>Now you are in the IDLE environment. This is the place you will be spending most time in. Here you can open a new window to write a program, or you can simply mess around with single lines of code, which is what we are going to do. Type the following and press enter: (don't type >>> as it should already be there)</p>
+			<code title="Hello, World!">
+				<l>&gt;&gt;&gt; print "Hello, World!"</l>
+			</code>
+			<p>What happened? You just created a program, that prints the words 'Hello, World'. The IDLE environment that you are in immediately compiles whatever you have typed in. This is useful for testing things, e.g. define a few variables, and then test to see if a certain line will work. That will come in a later lesson, though.</p>
+		</section>
+		<section title="Math in Python">
+			<p>Now try typing the stuff in bold. You should get the output shown in blue. I've given explainations in brackets.</p>
+			<code title="Maths">
+				<l>&gt;&gt;&gt; 1 + 1</l>
+				<l>2</l>
+				<l></l>
+				<l>&gt;&gt;&gt; 20+80</l>
+				<l>100</l>
+				<l>&gt;&gt;&gt; 18294+449566</l>
+				<l>467860</l>
+				<l>(These are additions)</l>
+				<l>&gt;&gt;&gt; 6-5</l>
+				<l>1</l>
+				<l>(Subtraction)</l>
+				<l>&gt;&gt;&gt; 2*5</l>
+				<l>10</l>
+				<l>(Multiply, rabbits!)</l>
+				<l>&gt;&gt;&gt; 5**2</l>
+				<l>25</l>
+				<l>(Exponentials e.g. this one is 5 squared)</l>
+				<l></l>
+				<l>&gt;&gt;&gt; print "1 + 2 is an addition"</l>
+				<l>1 + 2 is an addition</l>
+				<l>(the print statement, which writes something onscreen)</l>
+				<l>&gt;&gt;&gt; print "one kilobyte is 2^10 bytes, or", 2**10, "bytes"</l>
+				<l>one kilobyte is 2^10 bytes, or 1024 bytes</l>
+				<l>(you can print sums and variables in a sentence.</l>
+				<l>	The commas seperating each section are a way of</l>
+				<l>	seperating clearly different things that you are printing)</l>
+				<l></l>
+				<l>&gt;&gt;&gt; 21/3</l>
+				<l>7</l>
+				<l>&gt;&gt;&gt; 23/3</l>
+				<l>7</l>
+				<l>&gt;&gt;&gt; 23.0/3.0</l>
+				<l>7.6666...</l>
+				<l>(division, 2nd time ignoring remainder/decimals,</l>
+				<l>	3rd time including decimals)</l>
+				<l>&gt;&gt;&gt; 23%3</l>
+				<l>2</l>
+				<l>&gt;&gt;&gt; 49%10</l>
+				<l>9</l>
+				<l>(the remainder from a division)</l>
+			</code>
+			<p>As you see, there is the code, then the result of that code. I then explain them in brackets. These are the basic commands of python, and what they do. Here is a table to clarify them (because tables look cool, and make you feel smarter ;) ):</p>
+			<table title="Python operators">
+				<row>
+					<column title="command" width="25%" />
+					<column title="name" width="25%" />
+					<column title="example" width="25%" />
+					<column title="output" width="25%" />
+				</row>
+				<row>
+					<cell>+</cell>
+					<cell>Addition</cell>
+					<cell>4+5</cell>
+					<cell>9</cell>
+				</row>
+				<row>
+					<cell>-</cell>
+					<cell>Subtraction</cell>
+					<cell>8-5</cell>
+					<cell>3</cell>
+				</row>
+				<row>
+					<cell>*</cell>
+					<cell>Multiplication</cell>
+					<cell>4*5</cell>
+					<cell>20</cell>
+				</row>
+				<row>
+					<cell>/</cell>
+					<cell>Division</cell>
+					<cell>19/3</cell>
+					<cell>6</cell>
+				</row>
+				<row>
+					<cell>&#37;</cell>
+					<cell>Remainder</cell>
+					<cell>19&#37;3</cell>
+					<cell>5</cell>
+				</row>
+				<row>
+					<cell>**</cell>
+					<cell>Exponent</cell>
+					<cell>2**4</cell>
+					<cell>16</cell>
+				</row>
+			</table>
+			<p>Remember that thing called order of operation that they taught in maths? Well, it applies in python, too. Here it is, if you need reminding:</p>	
+			<orderedList>
+				<li>parentheses ()</li>
+				<li>exponents **</li>
+				<li>multiplication *, division \, and remainder %</li>
+				<li>addition + and subtraction -</li>
+			</orderedList>
+		</section>
+		<section title="Order of Operations">
+			<p>Here are some examples that you might want to try, if you're rusty on this:</p>
+			<code title="Order of Operations">
+				<l>&gt;&gt;&gt; 1 + 2 * 3</l>
+				<l>7</l>
+				<l>&gt;&gt;&gt; (1 + 2) * 3</l>
+				<l>9</l>
+			</code>
+			<p>In the first example, the computer calculates 2 * 3 first, then adds 1 to it. This is because multiplication has the higher priority (at 3) and addition is below that (at lowly 4).</p>
+			<p>In the second example, the computer calculates 1 + 2 first, then multiplies it by 3. This is because parentheses (brackets, like the ones that are surrounding this interluding text ;) ) have the higher priority (at 1) and addition comes in later than that.</p>
+			<p>Also remember that the math is calculated from left to right, UNLESS you put in parentheses. The innermost parentheses are calculated first. Watch these examples:</p>
+			<code title="Parentheses">
+				<l>&gt;&gt;&gt; 4 - 40 - 3</l>
+				<l>-39</l>
+				<l>&gt;&gt;&gt; 4 - (40 - 3)</l>
+				<l>-33</l>
+			</code>
+			<p>In the first example, 4 -40 is calculated,then - 3 is done.</p>
+			<p>In the second example, 40 - 3 is calculated, then it is subtracted from 4.</p>
+		</section>
+		<section title="Comments, Please">
+			<p>The final thing you'll need to know to move on to multi-line programs is the comment. Type the following (and yes, the output is shown):</p>
+			<code title="comments">
+				<l>&gt;&gt;&gt; #I am a comment. Fear my wrath!</l>
+				<l></l>
+				<l>&gt;&gt;&gt;</l>
+			</code>
+			<p>A comment is a piece of code that is not run. In python, you make something a comment by putting a hash in front of it. A hash comments everything after it in the line, and nothing before it. So you could type this:</p>
+			<code title="comment examples">
+				<l>&gt;&gt;&gt; print "food is very nice" #eat me</l>
+				<l></l>
+				<l>food is very nice</l>
+				<l></l>
+				<l>(a normal output, without the smutty comment,</l>
+				<l>thankyou very much)</l>
+				<l></l>
+				<l>&gt;&gt;&gt;# print "food is very nice"</l>
+				<l></l>
+				<l>(nothing happens, because the code was after a comment)</l>
+				<l></l>
+				<l>&gt;&gt;&gt; print "food is very nice" eat me</l>
+				<l></l>
+				<l>(you'll get a fairly harmless error message,</l>
+				<l>because you didn't put your comment after a hash)</l>
+			</code>
+			<p>Comments are important for adding necessary information for another programmer to read, but not the computer. For example, an explanation of a section of code, saying what it does, or what is wrong with it. You can also comment bits of code by putting a # in front of it - if you don't want it to compile, but cant delete it because you might need it later.</p>
+		</section>
+		<section title="Conclusion">
+			<p>There you go! Lesson 2 Completed. That was even shorter than lesson 1!</p>
+			<p>Next lesson, we make programs with many lines of code, and save them, so we can actually send them to people. That's right, you don't have to retype every program you run! What an amazing innovation!</p>
+			<p>Thanks to all,</p>
+			<p>sthurlow.com</p>
+		</section>
+	</content>
+</lesson>
+</document>

@@ -1,0 +1,241 @@
+<document>
+<lesson number="7" title="Tuples, Lists, and Dictionaries" author="Steven Thurlow" style="../../stylesheet.css">
+	<content>
+		<section title="Introduction">
+			<p>Well, in the first lesson about loops, I said I would put off teaching you the <tt>for</tt> loop, until we had reached lists. Well, here it is!</p>
+		</section>
+		<section title="The 'for' Loop">
+			<p>Basically, the <tt>for</tt> loop does something <i>for</i> every value in a list. The way it is set out is a little confusing, but otherwise is very basic. Here is an example of it in code:</p>
+			<code title="The for Loop">
+				<l># Example 'for' loop</l>
+				<l># First, create a list to loop through:</l>
+				<l>newList = [45, 'eat me', 90210, "The day has come, the walrus said, \</l>
+				<l>to speak of many things", -67]</l>
+				<l></l>
+				<l># create the loop:</l>
+				<l># Goes through newList, and seqentially puts each bit of information</l>
+				<l># into the variable value, and runs the loop</l>
+				<l>for value in newList:</l>
+				<l>    print value</l>
+			</code>
+			<p>As you see, when the loop executes, it runs through all of the values in the list mentioned after 'in'. It then puts them into <tt>value</tt>, and executes through the loop, each time with <tt>value</tt> being worth something different. Let's see it a again, in a classic cheerleading call that we all know:</p>
+			<code title="A for Loop Example">
+				<l># cheerleading program</l>
+				<l>word = raw_input("Who do you go for? ")</l>
+				<l></l>
+				<l>for letter in word:</l>
+				<l>    call = "Gimme a " + letter + "!"</l>
+				<l>    print call</l>
+				<l>    print letter + "!"</l>
+				<l></l>
+				<l>print "What does that spell?"</l>
+				<l>print word + "!"</l>
+			</code>
+			<p>A couple of things you've just learnt:</p>
+			<unorderedList>
+				<entry>As you see, strings (remember - strings are lines of text) are just lists with lots of characters.</entry>
+				<entry>The program went through each of the letters (or values) in word, and it printed them onscreen.</entry>
+			</unorderedList>
+			<p>And that is all there is to the <tt>for</tt> loop.</p>
+		</section>
+		<section title="Making a Menu Function">
+			<p>Now to the business end of the lesson. Lets start writing programs. So far we have learnt variables, lists, loops, and functions. That is pretty much all we need for quite a bit of programming. So let's set ourselves a task.</p>
+			<code title="A menu function">
+				<l># THE MENU FUNCTION</l>
+				<l># The program asks for a string with all the menu options in it,</l>
+				<l># and a text string asking a question.</l>
+				<l># make sure every menu entry is unique.</l>
+				<l></l>
+				<l>def menu(list, question):</l>
+				<l>    for entry in list:</l>
+				<l>        print 1 + list.index(entry),</l>
+				<l>        print ") " + entry</l>
+				<l></l>
+				<l>    return input(question) - 1</l>
+				<l></l>
+				<l># def menu(list, question): is telling the function to</l>
+				<l># ask for two bits of information:</l>
+				<l># A list of all the menu entries,</l>
+				<l># and the question it will ask when all the options have been printed</l>
+				<l></l>
+				<l># for entry in list: is pretty much saying;</l>
+				<l>#'for every entry in the list, do the following:'</l>
+				<l></l>
+				<l># print list.index(entry) + 1 uses the .index() function to find</l>
+				<l># where in the list the entry is in. print function then prints it</l>
+				<l># it adds 1 to make the numbers more intelligable.</l>
+				<l></l>
+				<l># print ") " + entry prints a bracket, and then the entry name</l>
+				<l></l>
+				<l># after the for loop is finished, input(question) - 1 asks the question,</l>
+				<l># and returns the value to the main program (minus 1, to turn it back to</l>
+				<l># the number the computer will understand).</l>
+			</code>
+			<p>That wasn't very difficult, was it? the actual program only took up five lines - this is the wonder of how much we have learnt so far! All my comments take up sixteen lines - more than three times the program length. It is a good idea to comment your programs extensively. Remember that if you are going to be publishin gyour code open-source, there are going to be a lot of people checking out the code that you have written. We'll see the function we just wrote in our first example program.</p>
+		</section>
+		<section title="Our First 'Game'">
+			<p>What will our first example program be? How about a (very) simple text adventure game? Sounds like fun! It will only encompass one room of a house, and will be extremely simple. There will be five things, and a door. In one of the five things, is a key to the door. You need to find the key, then open the door. I will give a plain-english version first, then do it in python:</p>
+			<code title="Plain-english version of code">
+				<l>#Plain-english version of our 'game'</l>
+				<l></l>
+				<l>Tell the computer about our menu function</l>
+				<l></l>
+				<l>Print a welcoming message, showing a description of the room.</l>
+				<l>We will give the player six things to look at: pot plant, painting,\</l>
+				<l> vase, lampshade, shoe, and the door</l>
+				<l></l>
+				<l>Tell the computer that the door is locked</l>
+				<l>Tell the computer where the key is</l>
+				<l></l>
+				<l>present a menu, telling you what things you can 'operate':</l>
+				<l>    It will give you the six options</l>
+				<l>    It will ask the question "what will you look at?"</l>
+				<l></l>
+				<l>if the user wanted to look at:</l>
+				<l>    pot plant:</l>
+				<l>        If the key is here, give the player the key</l>
+				<l>        otherwise, tell them it isn't here</l>
+				<l>    painting:</l>
+				<l>        same as above</l>
+				<l>    etc.</l>
+				<l>    door:</l>
+				<l>        If the player has the key, let them open the door</l>
+				<l>        Otherwise, tell them to look harder</l>
+				<l></l>
+				<l>Give the player a well done message, for completing the game.</l>
+			</code>
+			<p>From this, we can write a real program. Ready? Here it is (skip typing the comments):</p>
+			<code title="Text Adventure Game">
+				<l>#TEXT ADVENTURE GAME</l>
+				<l></l>
+				<l>#the menu function:</l>
+				<l>def menu(list, question):</l>
+				<l>    for entry in list:</l>
+				<l>        print 1 + list.index(entry),</l>
+				<l>        print ") " + entry</l>
+				<l></l>
+				<l>    return input(question) - 1</l>
+				<l></l>
+				<l>#Give the computer some basic information about the room:</l>
+				<l>items = ["pot plant","painting","vase","lampshade","shoe","door"]</l>
+				<l></l>
+				<l>#The key is in the vase (or entry number 2 in the list above):</l>
+				<l>keylocation = 2</l>
+				<l></l>
+				<l>#You haven't found the key:</l>
+				<l>keyfound = 0</l>
+				<l></l>
+				<l>loop = 1</l>
+				<l></l>
+				<l>#Give some introductary text:</l>
+				<l>print "Last night you went to sleep in the comfort of your own home."</l>
+				<l></l>
+				<l>print "Now, you find yourself locked in a room. You don't know how"</l>
+				<l>print "you got there, or what time it is. In the room you can see"</l>
+				<l>print len(items), "things:"</l>
+				<l>for x in items:</l>
+				<l>    print x</l>
+				<l>print ""</l>
+				<l>print "The door is locked. Could there be a key somewhere?"</l>
+				<l>#Get your menu working, and the program running until you find the key:</l>
+				<l>while loop == 1:</l>
+				<l>    choice = menu(items,"What do you want to inspect? ")</l>
+				<l>    if choice == 0:</l>
+				<l>        if choice == keylocation:</l>
+				<l>            print "You found a small key in the pot plant."</l>
+				<l></l>
+				<l>            print ""</l>
+				<l>            keyfound = 1</l>
+				<l>        else:</l>
+				<l>            print "You found nothing in the pot plant."</l>
+				<l>            print ""</l>
+				<l>    elif choice == 1:</l>				
+				<l>        if choice == keylocation:</l>
+				<l>            print "You found a small key behind the painting."</l>
+				<l>            print ""</l>
+				<l></l>
+				<l>            keyfound = 1</l>
+				<l>        else:</l>
+				<l>            print "You found nothing behind the painting."</l>
+				<l>            print ""</l>
+				<l>    elif choice == 2:</l>
+				<l>        if choice == keylocation:</l>
+				<l>            print "You found a small key in the vase."</l>
+				<l>            print ""</l>
+				<l>            keyfound = 1</l>
+				<l>        else:</l>
+				<l>            print "You found nothing in the vase."</l>
+				<l></l>
+				<l>            print ""</l>
+				<l>    elif choice == 3:</l>
+				<l>        if choice == keylocation:</l>
+				<l>            print "You found a small key in the lampshade."</l>
+				<l>            print ""</l>
+				<l>            keyfound = 1</l>
+				<l>        else:</l>
+				<l>            print "You found nothing in the lampshade."</l>
+				<l>            print ""</l>
+				<l></l>
+				<l>    elif choice == 4:</l>
+				<l>        if choice == keylocation:</l>
+				<l>            print "You found a small key in the shoe."</l>
+				<l>            print ""</l>
+				<l>            keyfound = 1</l>
+				<l>        else:</l>
+				<l>            print "You found nothing in the shoe."</l>
+				<l>            print ""</l>
+				<l>    elif choice == 5:</l>
+				<l>        if keyfound == 1:</l>
+				<l>            loop = 0</l>
+				<l>            print "You put in the key, turn it, and hear a click"</l>
+				<l></l>
+				<l>            print ""</l>
+				<l>        else:</l>
+				<l>            print "The door is locked, you need to find a key."</l>
+				<l>            print ""</l>
+				<l></l>
+				<l># Remember that a backslash continues</l>
+				<l># the code on the next line</l>
+				<l></l>
+				<l>print "Light floods into the room as \</l>
+				<l>you open the door to your freedom."</l>
+			</code>
+			<p>Well, a very simple, but fun, game. Don't get daunted by the amount of code there, 53 of the lines are just the 'if' statements, which is the easiest thing to read there (Once you comprehend all the indentation. Soon you'll make your own game, and you can make it as simple (or as complex) as you like. I'll post quite a few, later.</p>
+		</section>
+		<section title="Making the game better">
+			<p>The fist question you should ask is "does this program work?". The answer here is yes. Then you should ask "does this program work <i>well?</i>" - not quite. The menu() function is great - it reduces a lot of typing. The 'while' loop that we have, however, is a little messy - four levels of indents, for a simple program. We can do better!</p>
+			<p>Now, this will become much MUCH more straightforward when we introduce classes. But that will have to wait. Until then, let's make a function that reduces our mess. It we will pass two things to it - the menu choice we made, and the location of the key. It will return one thing - whether or not the key has been found. Lets see it:</p>
+			<code title="Creating an inspect function">
+				<l>def inspect(choice,location):</l>
+				<l>    if choice == location:</l>
+				<l>        print ""</l>
+				<l>        print "You found a key!"</l>
+				<l>        print ""</l>
+				<l>        return 1</l>
+				<l>    else:</l>
+				<l>        print ""</l>
+				<l>        print "Nothing of interest here."</l>
+				<l>        print ""</l>
+				<l>        return 0</l>
+			</code>
+			<p>Now the main program can be a little simpler. Let's take it from the while loop, and change things around:</p>
+			<code title="The new game">
+				<l>while loop == 1:</l>
+				<l>    keyfound = inspect(menu(items,"What do you want to inspect? "),keylocation)</l>
+				<l>    if keyfound == 1:</l>
+				<l>        print "You put the key in the lock of the door, and turn it. It opens!"</l>
+				<l>        loop = 0</l>
+				<l></l>
+				<l>print "Light floods into the room, \</l>
+				<l>as you open the door to your freedom."</l>
+			</code>
+			<p>Now the program becomes massively shorter - from a cumbersome 83 lines, to a very shapely 50 lines! Of course, you lose quite a bit of versatility - all the items in the room do the same thing. You automatically open the door when you find the key. The game becomes a little less interesting. It also becomes a little harder to change.</p>
+		</section>
+		<section title="conclusion">
+			<p>Now I said you would write some programs now. Here is your chance! Your task, if you chose to accept it, is to post a better text adventure game. You can use any of the code I have given you here. Remember to check back on previous lessons we have done - they are priceless tools. Do a search for some simple text adventure games - if you find some nice, fun text adventure games, have a look at them.</p>
+			<p>Thanks to all,</p>
+			<p>sthurlow.com</p>
+		</section>
+	</content>
+</lesson>
+</document>

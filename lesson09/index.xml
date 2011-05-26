@@ -1,0 +1,89 @@
+<document>
+<lesson number="9" title="Modules" author="Steven Thurlow" style="../../stylesheet.css">
+	<content>
+		<section title="Introduction">
+			<p>Last lesson we covered the killer topic of Classes. As you can remember, classes are neat combinations of variables and functions in a nice, neat package. Programming lingo calls this feature encapsulation, but reguardless of what it is called, it's a really cool feature for keeping things together so the code can be used in many instances in lots of places. Of course, you've got to ask, "how do I get my classes to many places, in many programs?". The answer is to put them into a module, to be imported into other programs.</p>
+		</section>
+		<section title="Module? What's a Module?">
+			<p>A module is a python file that (generally) has only defenitions of variables, functions, and classes. For example, a module might look like this:</p>
+			<code title="moduletest.py">
+				<l>### EXAMPLE PYTHON MODULE</l>
+				<l># Define some variables:</l>
+				<l>numberone = 1</l>
+				<l>ageofqueen = 78</l>
+				<l></l>
+				<l># define some functions</l>
+				<l>def printhello():</l>
+				<l>    print "hello"</l>
+				<l>    </l>
+				<l>def timesfour(input):</l>
+				<l>    print input * 4</l>
+				<l>    </l>
+				<l># define a class</l>
+				<l>class Piano:</l>
+				<l>    def __init__(self):</l>
+				<l>        self.type = raw_input("What type of piano? ")</l>
+				<l>        self.height = raw_input("What height (in feet)? ")</l>
+				<l>        self.price = raw_input("How much did it cost? ")</l>
+				<l>        self.age = raw_input("How old is it (in years)? ")</l>
+				<l>	</l>
+				<l>    def printdetails(self):</l>
+				<l>        print "This piano is a/an " + self.height + " foot",</l>
+				<l>        print self.type, "piano, " + self.age, "years old and costing\</l>
+				<l> " + self.price + " dollars."</l>
+			</code>
+			<p>As you see, a module looks pretty much like your normal python program.</p>
+			<p>So what do we do with a module? We <tt>import</tt> bits of it (or all of it) into other programs.</p>
+			<p>To import all the variables, functions and classes from moduletest.py into another program you are writing, we use the import operator. For example, to import moduletest.py into your main program, you would have this:</p>
+			<code title="mainprogram.py">
+				<l>### mainprogam.py</l>
+				<l>### IMPORTS ANOTHER MODULE</l>
+				<l>import moduletest</l>
+			</code>
+			<p>This assumes that the module is in the same directory as mainprogram.py, or is a default module that comes with python. You leave out the '.py' at the end of the file - it is ignored. You normally put all import statements at the beginning of the python file, but technically they can be anywhere. In order to use the items in the module in your main program, you use the following:</p>
+			<code title="mainprogram.py continued">
+				<l>### USING AN IMPORTED MODULE</l>
+				<l># Use the form modulename.itemname</l>
+				<l># Examples:</l>
+				<l>print moduletest.ageofqueen</l>
+				<l>cfcpiano = moduletest.Piano()</l>
+				<l>cfcpiano.printdetails()</l>
+			</code>
+			<p>As you see, the modules that you import act very much like the classes we looked at last lesson - anything inside them must be preceeded with <tt>modulename.</tt> for it to work.</p>
+		</section>
+		<section title="More module thingummyjigs (in lack of a better title)">
+			<p>Wish you could get rid of the <tt>modulename.</tt> part that you have to put before every item you use from a module? No? Never? Well, I'll teach it you anyway.</p>
+			<p>One way to avoid this hassle is to import only the wanted objects from the module. To do this, you use the <tt>from</tt> operator. You use it in the form of <tt>from modulename import itemname</tt>. Here is an example:</p>
+			<code title="importing individual objects">
+				<l>### IMPORT ITEMS DIRECTLY INTO YOUR PROGRAM</l>
+				<l></l>
+				<l># import them</l>
+				<l>from moduletest import ageofqueen</l>
+				<l>from moduletest import printhello</l>
+				<l></l>
+				<l># now try using them</l>
+				<l>print ageofqueen</l>
+				<l>printhello()</l>
+			</code>
+			<p>What is the point of this? Well, maybe you could use it to make your code a little more readable. If we get into heaps of modules inside modules, it could also remove that extra layer of crypticness.</p>
+			<p>If you wanted to, you could import everything from a module is this way by using <tt>from modulename import *</tt>. Of course, this can be troublesome if there are objects in your program with the same name as some items in the module. With large modules, this can easily happen, and can cause many a headache. A better way to do this would be to import a module in the normal way (without the from operator) and then assign items to a local name:</p>
+			<code title="mainprogram.py continued">
+				<l>### ASSIGNING ITEMS TO A LOCAL NAME</l>
+				<l></l>
+				<l># Assigning to a local name</l>
+				<l>timesfour = moduletest.timesfour</l>
+				<l></l>
+				<l># Using the local name</l>
+				<l>print timesfour(565)</l>
+			</code>
+			<p>This way, you can remove some crypticness, AND have all of the items from a certain module.</p>
+		</section>
+		<section title="Conclusion">
+			<p>That's it! A very simple lesson, but now you can organise your programs very neatly. In fact, now it is increadibly easy to make progams that can grow in complexity without ending up with one cryptic file that is full of bugs.</p>
+			<p>Modules are great for importing code. Next lesson, we learn about file input and output, and the saving of information inside classes, to be retrieved later. Will be great! But until then...</p>
+			<p>Thanks to all,</p>
+			<p>sthurlow.com</p>
+		</section>
+	</content>
+</lesson>
+</document>

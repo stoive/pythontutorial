@@ -1,0 +1,77 @@
+<tutorial>
+<lesson number="3" title="Programs in a file, and variables" author="Steven Thurlow">
+    <content>
+		<section title="Introduction">
+			<p>Well, we can make one-liner programs. So What? You want to send programs to other people, so that they can use them, without knowing how to write them.</p>
+		</section>
+		<section title="Editing in Notepad">
+			<p>Writing programs in python to a file is VERY easy. Python programs are simply text documents - you can open them up in notepad, and have a look at them, just like that. So, go and open notepad. Type the following:</p>
+			<code title="mary.py">
+				<l>#A simple program.</l>
+				<l>print "Mary had a little lamb,"</l>
+				<l>print "it's fleece was white as snow;"</l>
+				<l>print "and everywhere that Mary went",</l>
+				<l>print "her lamb was sure to go."</l>
+			</code>
+			<p>Keep this exactly the same, down to where the commas are placed. Save the file as 'mary.py' - and make sure notepad doesn't add .txt to the end of the filename - You will have to tell it to save as any file, to avoid this. Turn off 'Hide known file extensions' in Windows Explorer, if it makes it easier.</p>
+		</section>
+		<section title="Using the IDLE Environment">
+			<p>Now, open up the Python IDLE program (should be in your start menu). Click 'File > Open' and find mary.py and open it. if you cant find mary.py, set the open dialogue to 'Files of type: All Files (*)'. A new window will open, showing the program you just wrote. To run your program, click 'Run>Run Module' (or just press F5). Your program will now run in the main Python screen (Titled *Python Shell*) and will look like this:</p>
+			<code title="mary.py output">
+				<l>Mary had a little lamb,</l>
+				<l>it's fleece was white as snow;</l>
+				<l>and everywhere that Mary went her lamb was sure to go.</l>
+			</code>
+			<p>You can also use IDLE to create Python programs, like what you did in notepad. Simply click 'File > New'. We will be writing all of our programs now in the python IDLE program - the notepad thing is just a demonstration to tell you that a .py file is just a simple text file, which anyone can see.</p>
+			<p>There are a couple of things to notice here:</p>
+			<list state="unordered">
+				<entry>First of all, the comment wasn't shown. That is good, because remember - comments aren't compiled. (try compiling it after removing the # - it comes out messy)</entry>
+				<entry>Second, is that the 3rd and 4th line got joined. This is because there is a comma just outside the inverted commas that surround the text. In the 'print' command, this stops the program from starting a new line on the screen when showing text.</entry>
+				<entry>You can also run the program from your command line program (e.g. MSDOS) - Open the prompt up, type 'cd path\to\your\file' then type 'python mary.py'. Your program will now execute in the command line.</entry>
+			</list>
+		</section>
+		<section title="Variables">
+			<p>Now lets start introducing variables. Variables store a value, that can be looked at or changed at a later time. Let's make a program that uses variables. Open up IDLE, click 'File>New Window' - a new window now appears, and it is easy to type in programs. Type the following (or just copy and paste - just read very carefully, and compare the code to the output that the program will make):</p>
+			<code title="Variables">
+				<l>#variables demonstrated</l>
+				<l>print "This program is a demo of variables"</l>
+				<l>v = 1</l>
+				<l>print "The value of v is now", v</l>
+				<l>v = v + 1</l>
+				<l>print "v now equals itself plus one, making it worth", v</l>
+				<l>v = 51</l>
+				<l>print "v can store any numerical value, to be used elsewhere."</l>
+				<l>print "for example, in a sentence. v is now worth", v</l>
+				<l>print "v times 5 equals", v*5</l>
+				<l>print "but v still only remains", v</l>
+				<l>print "to make v five times bigger, you would have to type v = v * 5"</l>
+				<l>v = v * 5</l>
+				<l>print "there you go, now v equals", v, "and not", v / 5</l>
+			</code>
+		</section>
+		<section title="Strings">
+			<p>As you can see, variables store values, for use at a later time. You can change them at any time. You can put in more than numbers, though. Variables can hold things like text. A variable that holds text is called a string. Try this program:</p>
+			<code title="Strings">
+				<l>#giving variables text, and adding text.</l>
+				<l>word1 = "Good"</l>
+				<l>word2 = "Morning"</l>
+				<l>word3 = "to you too!"</l>
+				<l>print word1, word2</l>
+				<l>sentence = word1 + " " + word2 + " " +word3</l>
+				<l>print sentence</l>
+			</code>
+			<p>The output will be:</p>
+			<code title="String output">
+				<l>Good Morning</l>
+				<l>Good Morning to you too!</l>
+			</code>
+			<p>As you see, the variables above were holding text. Variable names can also be longer than one letter - here, we had word1, word2, and word3. As you can also see, strings can be added together to make longer words or sentences. However, it doesn't add spaces in between the words - hence me putting in the " " things (there is one space between those).</p>
+		</section>
+		<section title="Conclusion">
+			<p>Well done! We now understand longer programs, and know the use of variables. Next lesson, we look at functions, what they are, and how to use them.</p>
+			<p>Thanks to all,</p>
+			<p>sthurlow.com</p>
+		</section>
+    </content>
+</lesson>
+</tutorial>

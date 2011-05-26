@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>Lesson 3 - Programs in a file, and variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="keywords" content="civilization,civ2,civ3,civ4,civilization iii,civilization ii,civilization iv,mod,python,xml,script,install" />
+<meta name="description" content="A Python and XML tutorial aimed at Civilization IV modding" />
+</head><link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+
+<body bgcolor="Teal">
+<div align="center" class="SidePanel">
+<div align="left" class="PaddingBig">
+<div class="MenuSection">
+<h1>Sthurlow.com</h1>
+<h2>Civilization IV Python tutorial</h2><h3>The Python Tutorial</h3>
+<p>The original sthurlow.com python tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson01/">Installing Python</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson02/">Very Simple Programs</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson03/">Variables, Scripts</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson04/">Loops, Conditionals</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson05/">Functions</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson06/">Tuples, Lists, Dictionaries</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson07/">for Loop</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson08/">Classes</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson09/">Importing Modules</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson10/">File I/O</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson11/">Error Handling</a></div>
+</p>
+<h3>The Civ4 Programming Tutorial</h3>
+<p>All new Civ4 programming tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/">Lesson 1 (not released)</a></div>
+</p>
+<br /><br /></div></div>
+</div>
+
+<div align="center" class="TextPanel">
+<div align="left" class="Padding"><h2>Programs in a file, and variables</h2>
+
+<h3>Introduction</h3>
+<p>Well, we can make one-liner programs. So What? You want to send programs to other people, so that they can use them, without knowing how to write them.</p>
+
+<h3>Editing in Notepad</h3>
+<p>Writing programs in python to a file is VERY easy. Python programs are simply text documents - you can open them up in notepad, and have a look at them, just like that. So, go and open notepad. Type the following:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 1 - mary.py</div>
+<div align="left" class="CodeBody">
+<pre>
+#A simple program.
+print "Mary had a little lamb,"
+print "it's fleece was white as snow;"
+print "and everywhere that Mary went",
+print "her lamb was sure to go."
+</pre>
+</div>
+</div><p>Keep this exactly the same, down to where the commas are placed. Save the file as 'mary.py' - and make sure notepad doesn't add .txt to the end of the filename - You will have to tell it to save as any file, to avoid this. Turn off 'Hide known file extensions' in Windows Explorer, if it makes it easier.</p>
+
+<h3>Using the IDLE Environment</h3>
+<p>Now, open up the Python IDLE program (should be in your start menu). Click 'File > Open' and find mary.py and open it. if you cant find mary.py, set the open dialogue to 'Files of type: All Files (*)'. A new window will open, showing the program you just wrote. To run your program, click 'Run>Run Module' (or just press F5). Your program will now run in the main Python screen (Titled *Python Shell*) and will look like this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 2 - mary.py output</div>
+<div align="left" class="CodeBody">
+<pre>
+Mary had a little lamb,
+it's fleece was white as snow;
+and everywhere that Mary went her lamb was sure to go.
+</pre>
+</div>
+</div><p>You can also use IDLE to create Python programs, like what you did in notepad. Simply click 'File > New'. We will be writing all of our programs now in the python IDLE program - the notepad thing is just a demonstration to tell you that a .py file is just a simple text file, which anyone can see.</p>
+<p>There are a couple of things to notice here:</p>
+
+<ul><li>First of all, the comment wasn't shown. That is good, because remember - comments aren't compiled. (try compiling it after removing the # - it comes out messy)</li>
+<li>Second, is that the 3rd and 4th line got joined. This is because there is a comma just outside the inverted commas that surround the text. In the 'print' command, this stops the program from starting a new line on the screen when showing text.</li>
+<li>You can also run the program from your command line program (e.g. MSDOS) - Open the prompt up, type 'cd path\to\your\file' then type 'python mary.py'. Your program will now execute in the command line.</li>
+
+</ul>
+<h3>Variables</h3>
+<p>Now lets start introducing variables. Variables store a value, that can be looked at or changed at a later time. Let's make a program that uses variables. Open up IDLE, click 'File>New Window' - a new window now appears, and it is easy to type in programs. Type the following (or just copy and paste - just read very carefully, and compare the code to the output that the program will make):</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 3 - Variables</div>
+<div align="left" class="CodeBody">
+<pre>
+#variables demonstrated
+print "This program is a demo of variables"
+v = 1
+print "The value of v is now", v
+v = v + 1
+print "v now equals itself plus one, making it worth", v
+v = 51
+print "v can store any numerical value, to be used elsewhere."
+print "for example, in a sentence. v is now worth", v
+print "v times 5 equals", v*5
+print "but v still only remains", v
+print "to make v five times bigger, you would have to type v = v * 5"
+v = v * 5
+print "there you go, now v equals", v, "and not", v / 5
+</pre>
+</div>
+</div>
+<h3>Strings</h3>
+<p>As you can see, variables store values, for use at a later time. You can change them at any time. You can put in more than numbers, though. Variables can hold things like text. A variable that holds text is called a string. Try this program:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 4 - Strings</div>
+<div align="left" class="CodeBody">
+<pre>
+#giving variables text, and adding text.
+word1 = "Good"
+word2 = "Morning"
+word3 = "to you too!"
+print word1, word2
+sentence = word1 + " " + word2 + " " +word3
+print sentence
+</pre>
+</div>
+</div><p>The output will be:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 5 - String output</div>
+<div align="left" class="CodeBody">
+<pre>
+Good Morning
+Good Morning to you too!
+</pre>
+</div>
+</div><p>As you see, the variables above were holding text. Variable names can also be longer than one letter - here, we had word1, word2, and word3. As you can also see, strings can be added together to make longer words or sentences. However, it doesn't add spaces in between the words - hence me putting in the " " things (there is one space between those).</p>
+
+<h3>Conclusion</h3>
+<p>Well done! We now understand longer programs, and know the use of variables. Next lesson, we look at functions, what they are, and how to use them.</p>
+<p>Thanks to all,</p>
+<p>sthurlow.com</p>
+
+</div></div></body>
+</html>

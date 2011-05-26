@@ -1,0 +1,236 @@
+<document>
+<lesson number="4" title="Loops, Loops, Loops, Loops..." author="Steven Thurlow" style="../../stylesheet.css">
+	<content>
+		<section title="Introduction">
+			<p>(Our final lesson before we get into interacting with human input. Can't wait, can you?)</p>
+			<p>Just imagine you needed a program to do something 20 times. What would you do? You could copy and paste the code 20 times, and have a virtually unreadable program, not to mention slow and pointless. Or, you could tell the computer to repeat a bit of code between point A and point B, until the time comes that you need it to stop. Such a thing is called a loop.</p>
+		</section>
+		<section title="The 'while' loop">
+			<p>The following are examples of a type of loop, called the 'while' loop:</p>
+			<code title="The while loop">
+				<l>a = 0</l>
+				<l>while a &lt; 10:</l>
+				<l>    a = a + 1</l>
+				<l>    print a</l>
+			</code>
+			<p>How does this program work? Lets go through it in English:</p>
+			<code title="plain-language while loop">
+				<l>'a' now equals 0</l>
+				<l>As long as 'a' is less than 10, do the following:</l>
+				<l>    Make 'a' one larger than what it already is.</l>
+				<l>    print on-screen what 'a' is now worth.</l>
+			</code>
+			<p>What does this do? Lets go through what the computer would be 'thinking' when it is in the 'while' loop:</p>
+			<code title="while loop process">
+				<l>#JUST GLANCE OVER THIS QUICKLY</l>
+				<l>#(It looks fancy, but is really simple)</l>
+				<l>Is 'a' less than 10? YES (its 0)</l>
+				<l>Make 'a' one larger (now 1)</l>
+				<l>print on-screen what 'a' is (1)</l>
+				<l></l>
+				<l>Is 'a' less than 10? YES (its 1)</l>
+				<l>Make 'a' one larger (now 2)</l>
+				<l>print on-screen what 'a' is (2)</l>
+				<l></l>
+				<l>Is 'a' less than 10? YES (its 2)</l>
+				<l>Make 'a' one larger (now 3)</l>
+				<l>print on-screen what 'a' is (3)</l>
+				<l></l>
+				<l>Is 'a' less than 10? YES (its 3)</l>
+				<l>Make 'a' one larger (now 4)</l>
+				<l>print on-screen what 'a' is (4)</l>
+				<l></l>
+				<l>Is 'a' less than 10? YES (its 4)</l>
+				<l>Make 'a' one larger (now 5)</l>
+				<l>print on-screen what 'a' is (5)</l>
+				<l></l>
+				<l>Is 'a' less than 10? YES (its 5)</l>
+				<l>Make 'a' one larger (now 6)</l>
+				<l>print on-screen what 'a' is (6)</l>
+				<l></l>
+				<l>Is 'a' less than 10? YES (its 6)</l>
+				<l>Make 'a' one larger (now 7)</l>
+				<l>print on-screen what 'a' is (7)</l>
+				<l></l>
+				<l>Is 'a' less than 10? YES (are you still here?)</l>
+				<l>Make 'a' one larger (now 8)</l>
+				<l>print on-screen what 'a' is (8)</l>
+				<l></l>
+				<l>Is 'a' less than 10? YES (its 8)</l>
+				<l>Make 'a' one larger (now 9)</l>
+				<l>print on-screen what 'a' is (9)</l>
+				<l></l>
+				<l>Is 'a' less than 10? YES (its 9)</l>
+				<l>Make 'a' one larger (now 10)</l>
+				<l>print on-screen what 'a' is (10)</l>
+				<l></l>
+				<l>Is 'a' less than 10? NO (its 10, therefore isn't less than 10)</l>
+				<l>Don't do the loop</l>
+				<l>There's no code left to do, so the program ends</l>
+			</code>
+			<p>So in short, try to think of it that way when you write 'while' loops. This is how you write them, by the way (and a couple of examples:</p>
+			<code title="while loop form, and example">
+				<l>while {condition that the loop continues}:</l>
+				<l>    {what to do in the loop}</l>
+				<l>    {have it indented, usually four spaces}</l>
+				<l>{the code here is not looped}</l>
+				<l>{because it isn't indented}</l>
+				<l></l>
+				<l>#EXAMPLE</l>
+				<l>#Type this in, see what it does</l>
+				<l>x = 10</l>
+				<l>while x != 0:</l>
+				<l>    print x</l>
+				<l>    x = x - 1</l>
+				<l>    print "wow, we've counted x down, and now it equals", x</l>
+				<l>print "And now the loop has ended."</l>
+			</code>
+			<p>Remember, to make a program, you open IDLE, click File > New Window, type your program in the new window, then press F5 to run.</p>
+		</section>
+		<section title="Boolean Expressions (Boolean... what?!?)">
+			<p>What do you type in the area marked {conditions that the loop continues}? The answer is a boolean expression.</p>
+			<p>What? A forgotten concept for the non-math people here. Never mind, boolean expression just means a question that can be answered with a TRUE or FALSE response. For example, if you wanted to say your age is the same as the person next to you, you would type:</p>
+			<p>My age == the age of the person next to me</p>
+			<p>And the statement would be TRUE. If you were younger than the person opposite, you'd say:</p>
+			<p>My age &lt; the age of the person opposite me</p>
+			<p>And the statement would be TRUE. If, however, you were to say the following, and the person opposite of you was younger than you:</p>
+			<p>My age &lt; the age of the person opposite me</p>
+			<p>The statement would be FALSE - the truth is that it is the other way around. This is how a loop thinks - if the expression is true, keep looping. If it is false, don't loop. With this in mind, lets have a look at the operators (symbols that represent an action) that are involved in boolean expressions:</p>
+			<table title="Boolean operators">
+				<row>
+				    <column title="Expression" width="20%"/>
+				    <column title="Function" width="80%"/>
+				</row>
+				<row>
+					<cell>&lt;</cell>
+					<cell>less than</cell>
+				</row>
+				<row>
+					<cell>&lt;=</cell>
+					<cell>less that or equal to</cell>
+				</row>
+				<row>
+					<cell>&gt;</cell>
+					<cell>greater than</cell>
+				</row>
+				<row>
+					<cell>&gt;=</cell>
+					<cell>greater than or equal to</cell>
+				</row>
+				<row>
+					<cell>!=</cell>
+					<cell>not equal to</cell>
+				</row>
+				<row>
+					<cell>&lt;&gt;</cell>
+					<cell>not equal to (alternate)</cell>
+				</row>
+				<row>
+					<cell>==</cell>
+					<cell>equal to</cell>
+				</row>
+			</table>
+			<p>Dont get '=' and '==' mixed up - the '=' operator makes what is on the left equal to what is on the right. the '==' operator says whether the thing on the left is the same as what is on the right, and returns true or false.</p>
+		</section>
+		<section title="Conditional Statements">
+			<p>OK! We've (hopefully) covered 'while' loops. Now let's look at something a little different - conditionals.</p>
+			<p>Conditionals are where a section of code is only run if certain conditions are met. This is similar to the 'while' loop you just wrote, which only runs when x doesn't equal 0. However, Conditionals are only run once. The most common conditional in any program language, is the 'if' statement. Here is how it works:</p>
+			<code title="if statement and example">
+				<l>if {conditions to be met}:</l>
+				<l>    {do this}</l>
+				<l>    {and this}</l>
+				<l>    {and this}</l>
+				<l>{but this happens regardless}</l>
+				<l>{because it isn't indented}</l>
+				<l></l>
+				<l>#EXAMPLE 1</l>
+				<l>y = 1</l>
+				<l>if y == 1:</l>
+				<l>    print "y still equals 1, I was just checking"</l>
+				<l></l>
+				<l>#EXAMPLE 2</l>
+				<l>print "We will show the even numbers up to 20"</l>
+				<l>n = 1</l>
+				<l>while n &lt;= 20:</l>
+				<l>    if n % 2 == 0:</l>
+				<l>        print n</l>
+				<l>    n = n + 1</l>
+				<l>print "there, done."</l>
+			</code>
+			<p>Example 2 there looks tricky. But all we have done is run an 'if' statement every time the 'while' loop runs. Remember that the % just means the remainder from a division - just checking that there is nothing left over if the number is divided by two - showing it is even. If it is even, it prints what 'n' is.</p>
+		</section>
+		<section title="'else' and 'elif' - When it Ain't True">
+			<p>There are many ways you can use the 'if' statement, do deal with situations where your boolean expression ends up FALSE. They are 'else' and 'elif'.</p>
+			<p>'else' simply tells the computer what to do if the conditions of 'if' arent met. For example, read the following:</p>
+			<code title="the else statement">
+				<l>a = 1</l>
+				<l>if a &gt; 5:</l>
+				<l>    print "This shouldn't happen."</l>
+				<l>else:</l>
+				<l>    print "This should happen."</l>
+			</code>
+			<p>'a' is not greater than five, therefore what is under 'else' is done.</p>
+			<p>'elif' is just a shortened way of saying 'else if'. When the 'if' statement fails to be true, 'elif' will do what is under it IF the conditions are met. For example:</p>
+			<code title="The elif statement">
+				<l>z = 4</l>
+				<l>if z &gt; 70:</l>
+				<l>    print "Something is very wrong"</l>
+				<l>elif z &lt; 7:</l>
+				<l>    print "This is normal"</l>
+			</code>
+			<p>The 'if' statement, along with 'else' and 'elif' follow this form:</p>
+			<code title="the complete if syntax">
+				<l>if {conditions}:</l>
+				<l>    {run this code}</l>
+				<l>elif {conditions}:</l>
+				<l>    {run this code}</l>
+				<l>elif {conditions}:</l>
+				<l>    {run this code}</l>
+				<l>else:</l>
+				<l>    {run this code}</l>
+				<l></l>
+				<l>#You can have as many or as little elif statements as you need</l>
+				<l>#anywhere from zero to the sky.</l>
+				<l>#You can have at most one else statement</l>
+				<l>#and only after all other ifs and elifs.</l>
+			</code>
+			<p>One of the most important points to remember is that you MUST have a colon : at the end of every line with an 'if', 'elif', 'else' or 'while' in it. I forgot that, and as a result a stack of people got stumped at this lesson (sorry ;) ).</p>
+		</section>
+		<section title="Indentation">
+			<p>One other point is that the code to be executed if the conditions are met, MUST BE INDENTED. That means that if you want to loop the next five lines with a 'while' loop, you must put a set number of spaces at the beginning of each of the next five lines. This is good programming practice in any language, but python requires that you do it. Here is an example of both of the above points:</p>
+			<code title="Indentation">
+				<l>a = 10</l>
+				<l>while a &gt; 0:</l>
+				<l>    print a</l>
+				<l>    if a &gt; 5:</l>
+				<l>        print "Big number!"</l>
+				<l>    elif a % 2 != 0:</l>
+				<l>        print "This is an odd number"</l>
+				<l>        print "It isn't greater than five, either"</l>
+				<l>    else:</l>
+				<l>        print "this number isn't greater than 5"</l>
+				<l>        print "nor is it odd"</l>
+				<l>        print "feeling special?"</l>
+				<l>    a = a - 1</l>
+				<l>    print "we just made 'a' one less than what it was!"</l>
+				<l>    print "and unless a is not greater than 0, we'll do the loop again."</l>
+				<l>print "well, it seems as if 'a' is now no bigger than 0!"</l>
+				<l>print "the loop is now over, and without furthur adue, so is this program!"</l>
+			</code>
+			<p>Notice the three levels of indents there:</p>
+			<orderedList>
+				<entry>Each line in the first level starts with no spaces. It is the main program, and will always execute.</entry>
+				<entry>Each line in the second level starts with four spaces. When there is an 'if' or loop on the first level, everything on the second level after that will be looped/'ifed', until a new line starts back on the first level again.</entry>
+				<entry>Each line in the third level starts with eight spaces. When there is an 'if' or loop on the second level, everything on the third level after that will be looped/'ifed', until a new line starts back on the second level again.</entry>
+				<entry>This goes on infinitely, until the person writing the program has an internal brain explosion, and cannot understand anything he/she has written.</entry>
+			</orderedList>
+			<p>There is another loop, called the 'for' loop, but we will cover that in a later lesson, after we have learnt about lists.</p>
+		</section>
+		<section title="Conclusion">
+			<p>And that is lesson 4! In lesson 5, we get into user interaction, and writing programs that actually serve a purpose. Can't wait!</p>
+			<p>Thanks to all,</p>
+			<p>sthurlow.com</p>
+		</section>
+	</content>
+</lesson>
+</document>

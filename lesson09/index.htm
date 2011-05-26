@@ -1,0 +1,149 @@
+<html>
+<head>
+<title>Lesson 9 - Modules</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="keywords" content="civilization,civ2,civ3,civ4,civilization iii,civilization ii,civilization iv,mod,python,xml,script,install" />
+<meta name="description" content="A Python and XML tutorial aimed at Civilization IV modding" />
+</head><link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+
+<body bgcolor="Teal">
+<div align="center" class="SidePanel">
+<div align="left" class="PaddingBig">
+<div class="MenuSection">
+<h1>Sthurlow.com</h1>
+<h2>Civilization IV Python tutorial</h2><h3>The Python Tutorial</h3>
+<p>The original sthurlow.com python tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson01/">Installing Python</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson02/">Very Simple Programs</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson03/">Variables, Scripts</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson04/">Loops, Conditionals</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson05/">Functions</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson06/">Tuples, Lists, Dictionaries</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson07/">for Loop</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson08/">Classes</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson09/">Importing Modules</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson10/">File I/O</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson11/">Error Handling</a></div>
+</p>
+<h3>The Civ4 Programming Tutorial</h3>
+<p>All new Civ4 programming tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/">Lesson 1 (not released)</a></div>
+</p>
+<br /><br /></div></div>
+</div>
+
+<div align="center" class="TextPanel">
+<div align="left" class="Padding"><h2>Modules</h2>
+
+<h3>Introduction</h3>
+<p>Last lesson we covered the killer topic of Classes. As you can remember, classes are neat combinations of variables and functions in a nice, neat package. Programming lingo calls this feature encapsulation, but reguardless of what it is called, it's a really cool feature for keeping things together so the code can be used in many instances in lots of places. Of course, you've got to ask, "how do I get my classes to many places, in many programs?". The answer is to put them into a module, to be imported into other programs.</p>
+
+<h3>Module? What's a Module?</h3>
+<p>A module is a python file that (generally) has only defenitions of variables, functions, and classes. For example, a module might look like this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 1 - moduletest.py</div>
+<div align="left" class="CodeBody">
+<pre>
+### EXAMPLE PYTHON MODULE
+# Define some variables:
+numberone = 1
+ageofqueen = 78
+
+# define some functions
+def printhello():
+    print "hello"
+    
+def timesfour(input):
+    print input * 4
+    
+# define a class
+class Piano:
+    def __init__(self):
+        self.type = raw_input("What type of piano? ")
+        self.height = raw_input("What height (in feet)? ")
+        self.price = raw_input("How much did it cost? ")
+        self.age = raw_input("How old is it (in years)? ")
+	
+    def printdetails(self):
+        print "This piano is a/an " + self.height + " foot",
+        print self.type, "piano, " + self.age, "years old and costing\
+ " + self.price + " dollars."
+</pre>
+</div>
+</div><p>As you see, a module looks pretty much like your normal python program.</p>
+<p>So what do we do with a module? We <tt>import</tt> bits of it (or all of it) into other programs.</p>
+<p>To import all the variables, functions and classes from moduletest.py into another program you are writing, we use the import operator. For example, to import moduletest.py into your main program, you would have this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 2 - mainprogram.py</div>
+<div align="left" class="CodeBody">
+<pre>
+### mainprogam.py
+### IMPORTS ANOTHER MODULE
+import moduletest
+</pre>
+</div>
+</div><p>This assumes that the module is in the same directory as mainprogram.py, or is a default module that comes with python. You leave out the '.py' at the end of the file - it is ignored. You normally put all import statements at the beginning of the python file, but technically they can be anywhere. In order to use the items in the module in your main program, you use the following:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 3 - mainprogram.py continued</div>
+<div align="left" class="CodeBody">
+<pre>
+### USING AN IMPORTED MODULE
+# Use the form modulename.itemname
+# Examples:
+print moduletest.ageofqueen
+cfcpiano = moduletest.Piano()
+cfcpiano.printdetails()
+</pre>
+</div>
+</div><p>As you see, the modules that you import act very much like the classes we looked at last lesson - anything inside them must be preceeded with <tt>modulename.</tt> for it to work.</p>
+
+<h3>More module thingummyjigs (in lack of a better title)</h3>
+<p>Wish you could get rid of the <tt>modulename.</tt> part that you have to put before every item you use from a module? No? Never? Well, I'll teach it you anyway.</p>
+<p>One way to avoid this hassle is to import only the wanted objects from the module. To do this, you use the <tt>from</tt> operator. You use it in the form of <tt>from modulename import itemname</tt>. Here is an example:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 4 - importing individual objects</div>
+<div align="left" class="CodeBody">
+<pre>
+### IMPORT ITEMS DIRECTLY INTO YOUR PROGRAM
+
+# import them
+from moduletest import ageofqueen
+from moduletest import printhello
+
+# now try using them
+print ageofqueen
+printhello()
+</pre>
+</div>
+</div><p>What is the point of this? Well, maybe you could use it to make your code a little more readable. If we get into heaps of modules inside modules, it could also remove that extra layer of crypticness.</p>
+<p>If you wanted to, you could import everything from a module is this way by using <tt>from modulename import *</tt>. Of course, this can be troublesome if there are objects in your program with the same name as some items in the module. With large modules, this can easily happen, and can cause many a headache. A better way to do this would be to import a module in the normal way (without the from operator) and then assign items to a local name:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 5 - mainprogram.py continued</div>
+<div align="left" class="CodeBody">
+<pre>
+### ASSIGNING ITEMS TO A LOCAL NAME
+
+# Assigning to a local name
+timesfour = moduletest.timesfour
+
+# Using the local name
+print timesfour(565)
+</pre>
+</div>
+</div><p>This way, you can remove some crypticness, AND have all of the items from a certain module.</p>
+
+<h3>Conclusion</h3>
+<p>That's it! A very simple lesson, but now you can organise your programs very neatly. In fact, now it is increadibly easy to make progams that can grow in complexity without ending up with one cryptic file that is full of bugs.</p>
+<p>Modules are great for importing code. Next lesson, we learn about file input and output, and the saving of information inside classes, to be retrieved later. Will be great! But until then...</p>
+<p>Thanks to all,</p>
+<p>sthurlow.com</p>
+
+</div></div></body>
+</html>

@@ -1,0 +1,68 @@
+<page>
+	<text>
+		<heading val="2" text="A Beginner's Python Tutorial" />
+		<p>When CivilizationTM IV (Firaxis Games, published by Take2) was announced, one of the most exciting features was that much of the scripting code will be in python, and the game data in XML. This tutorial attempts to teach you the basics of python programming that you could use with civIV.</p>
+		<p>Of course, this tutorial is not limited to those who want to play a slow-paced turn-based strategy game. That is what it was written for, but is perfectly useful to any person with &lt;b&gt;no programming knowledge at all&lt;/b&gt;, who wants to learn python. But what makes this tutorial unique, is that it is written for beginners, by a beginner.</p>
+	</text>
+	<table title="Lessons">
+		<row>
+			<column title="Number" width="30%"/>
+			<column title="Name" width="70%"/>
+		</row>
+		<row>
+			<cell><link text="Lesson 1" dest ="./lesson01/" /></cell>
+			<cell>Installing Python</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 2" dest ="./lesson02/" /></cell>
+			<cell>Very Simple Programs</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 3" dest ="./lesson03/" /></cell>
+			<cell>Variables, and Programs in a Script</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 4" dest ="./lesson04/" /></cell>
+			<cell>Loops and Conditionals</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 5" dest ="./lesson05/" /></cell>
+			<cell>Functions</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 6" dest ="./lesson06/" /></cell>
+			<cell>Tuples, Lists, and Dictionaries</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 7" dest ="./lesson07/" /></cell>
+			<cell>The for loop</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 8" dest ="./lesson08/" /></cell>
+			<cell>Classes</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 9" dest ="./lesson09/" /></cell>
+			<cell>Importing Modules</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 10" dest ="./lesson10/" /></cell>
+			<cell>File I/O</cell>
+		</row>
+		<row>
+			<cell><link text="Lesson 11" dest ="./lesson11/" /></cell>
+			<cell>Error Handling</cell>
+		</row>
+	</table>
+	<p>Then we also have the (to be written) Civilization IV python introduction. It will begin its release in early November.</p>
+	<table title="Lessons">
+		<row>
+			<column title="Number" width="30%"/>
+			<column title="Name" width="70%"/>
+		</row>
+		<row>
+			<cell><link text="Lesson 1" dest ="" /></cell>
+			<cell>Introduction to Civilization IV python (not released yet)</cell>
+		</row>
+	</table>
+</page>

@@ -1,0 +1,90 @@
+<document>
+<lesson number="10" title="File I/O" author="Steven Thurlow" style="../../stylesheet.css">
+	<content>
+		<section title="Introduction">
+			<p>Last lesson we learnt how to load external code into our program. Without any introduction (like what I usually have), let's delve into file input and output with normal text files, and later the saving and restoring of instances of classes. (Wow, our lingo power has improved greatly!)</p>
+		</section>
+		<section title="Opening a file">
+			<p>To open a text file you use, well, the open() function. Seems sensible. You pass certain parameters to open() to tell it in which way the file should be opened - 'r' for read only, 'w' for writing only (if there is an old file, it will be written over), 'a' for appending (adding things on to the end of the file) and 'r+' for both reading and writing. But less talk, lets open a file for reading (you can do this in your python idle mode). Open a normal text file. We will then print out what we read inside the file:</p>
+			<code title="Opening a file">
+				<l>openfile = open('pathtofile', 'r')</l>
+				<l>openfile.read()</l>
+			</code>
+			<p>That was interesting. You'll notice a lot of '\n' symbols. These represent newlines (where you pressed enter to start a new line). The text is completely unformatted, but if you were to pass the output of <tt>openfile.read()</tt> to print (by typing <tt>print openfile.read()</tt>) it would be nicely formatted.</p>
+		</section>
+		<section title="Seek and You Shall Find">
+			<p>Did you try typing in <tt>print openfile.read()</tt>? Did it fail? It likely did, and reason is because the 'cursor' has changed it's place. Cursor? What cursor? Well, a cursor that you really cannot see, but still a cursor. This invisible cursor tells the read function (and many other I/O functions) where to start from. To set where the cursor is, you use the seek() function. It is used in the form <tt>seek(offset, whence)</tt>.</p>
+			<p><b>whence</b> is optional, and determines where to seek from. If whence is 0, the bytes/letters are counted from the beginning. If it is 1, the bytes are counted from the current cursor position. If it is 2, then the bytes are counted from the end of the file. If nothing is put there, 0 is assumed.</p>
+			<p><b>offset</b> decribes how far from whence that the cursor moves. for example:</p>
+			<unorderedList>
+				<entry><tt>openfile.seek(45,0)</tt> would move the cursor to 45 bytes/letters after the beginning of the file.<entry>
+				<entry><tt>openfile.seek(10,1)</tt> would move the cursor to 10 bytes/letters after the current cursor position.<entry>
+				<entry><tt>openfile.seek(-77,2)</tt> would move the cursor to 77 bytes/letters before the end of the file (notice the - before the 77)<entry>
+			</unorderedList>
+			<p>Try it out now. Use <tt>openfile.seek()</tt> to go to any spot in the file and then try typing print <tt>openfile.read()</tt>. It will print from the spot you seeked to. But realise that <tt>openfile.read()</tt> moves the cursor to the end of the file - you will have to seek again.</p>
+		</section>
+		<section title="Other I/O Functions">
+			<p>There are many other functions that help you with dealing with files. They have many uses that empower you to do more, and make the things you can do easier. Let's have a look at <tt>tell()</tt>, <tt>readline()</tt>, <tt>readlines()</tt>, <tt>write()</tt> and <tt>close()</tt>.</p>
+			<p><tt>tell()</tt> returns where the cursor is in the file. It has no parameters, just type it in (like what the example below will show). This is infinitely useful, for knowing what you are refering to, where it is, and simple control of the cursor. To use it, type <tt>fileobjectname.tell()</tt> - where <tt>fileobjectname</tt> is the name of the file object you created when you opened the file (in <tt>openfile = open('pathtofile', 'r')</tt> the file object name is <tt>openfile</tt>).</p>
+			<p><tt>readline()</tt> reads from where the cursor is till the end of the line. Remember that the end of the line isn't the edge of your screen - the line ends when you press enter to create a new line. This is useful for things like reading a log of events, or going through something progressively to process it. There are no parameters you have to pass to readline(), though you can optionally tell it the maximum number of bytes/letters to read by putting a number in the brackets. Use it with <tt>fileobjectname.readline()</tt>.</p>
+			<p><tt>readlines()</tt> is much like <tt>readline()</tt>, however <tt>readlines()</tt> reads all the lines from the cursor onwards, and returns a list, with each list element holding a line of code. Use it with <tt>fileobjectname.readlines()</tt>. For example, if you had the text file:</p>
+			<code title="example text file">
+				<l>Line 1</l>
+				<l></l>
+				<l>Line 3</l>
+				<l>Line 4</l>
+				<l></l>
+				<l>Line 6</l>
+			</code>
+			<p>then the returned list from <tt>readlines()</tt> would be:</p>
+			<table title="resulting list from readlines">
+				<row>
+					<column title="Index" width="20%" />
+					<column title="Value" width="80%" />
+				</row>
+				<row>
+					<cell>0</cell><cell>'Line 1'</cell>
+				</row>
+				<row>
+					<cell>1</cell><cell>''</cell>
+				</row>
+				<row>
+					<cell>2</cell><cell>'Line 3'</cell>
+				</row>
+				<row>
+					<cell>3</cell><cell>'Line 4'</cell>
+				</row>
+				<row>
+					<cell>4</cell><cell>''</cell>
+				</row>
+				<row>
+					<cell>5</cell><cell>'Line 6'</cell>
+				</row>
+			</table>
+			<p>The <tt>write()</tt> function, writes to the file. How did you guess??? It writes from where the cursor is, and overwrites text in front of it - like in MS Word, where you press 'insert' and it writes over the top of old text. To utilise this most purposeful function, put a string between the brackets to write e.g. <tt>fileobjectname.write('this is a string')</tt>.</p>
+			<p><tt>close</tt>, you may figure, closes the file so that you can no longer read or write to it until you reopen in again. Simple enough. To use, you would write <tt>fileobjectname.close()</tt>. Simple!</p>
+			<p>In Python idle mode, open up a test file (or create a new one...) and play around with these functions. You can do some simple (and very inconvenient) text editing.</p>
+		</section>
+		<section title="Mmm, Pickles">
+			<p>Pickles, in Python, are to be eaten. Their flavour is just to good to let programmers leave them in the fridge.</p>
+			<p>Ok, just joking there. Pickles, in Python, are objects saved to a file. An object in this case could be a variables, instance of a class, or a list, dictionary, or tuple. Other things can also be pickled, but with limits. The object can then be restored, or unpickled, later on. In other words, you are 'saving' your objects.</p>
+			<p>So how do we pickle? With the <tt>dump()</tt> function, which is inside the pickle module - so at the beginning of your program you will have to write <tt>import pickle</tt>. Simple enough? Then open an empty file, and use <tt>pickle.dump()</tt> to drop the object into that file. Let's try that:</p>
+			<l>### pickletest.py
+### PICKLE AN OBJECT
+
+# import the pickle module
+import pickle
+
+# lets create something to be pickled
+# How about a list?
+picklelist = ['one',2,'three','four',5,'can you count?']
+
+# now create a file
+# replace filename with the file you want to create
+file = open('filename', 'w')
+
+# now let's pickle picklelist
+pickle.dump(picklelist,file)
+
+# close the file, and your pickling is complete
+file.close()

@@ -1,0 +1,223 @@
+<document>
+<lesson number="6" title="Tuples, Lists, and Dictionaries" author="Steven Thurlow" style="../../stylesheet.css">
+    <content>
+		<section title="Introduction">
+			<p>Your brain still hurting from the last lesson? Never worry, this one will require a little less thought. We're going back to something simple - variables - but a little more in depth.</p>
+			<p>Think about it - variables store one bit of information. They may regurgitate (just not on the carpet...) that information at any point, and their bit of information can be changed at any time. Variables are great at what they do - storing a piece of information that may change over time.</p>
+			<p>But what if you need to store a long list of information, which doesn't change over time? Say, for example, the names of the months of the year. Or maybe a long list of information, that does change over time? Say, for example, the names of all your cats. You might get new cats, some may die, some may become your dinner (we should trade recipies!). What about a phone book? For that you need to do a bit of referencing - you would have a list of names, and attached to each of those names, a phone number. How would you do that?</p>
+		</section>
+		<section title="The Solution - Lists, Tuples, and Dictionaries">
+			<p>For these three problems, Python uses three different solutions - Tuples, lists, and dictionaries:</p>
+			<unorderedList>
+				<entry><b>Lists</b> are what they seem - a list of values. Each one of them is numbered, starting from zero - the first one is numbered zero, the second 1, the third 2, etc. You can remove values from the list, and add new values to the end. Example: Your many cats' names.</entry>
+				<entry><b>Tuples</b> are just like lists, but you can't change their values. The values that you give it first up, are the values that you are stuck with for the rest of the program. Again, each value is numbered starting from zero, for easy reference. Example: the names of the months of the year.</entry>
+				<entry><b>Dictionaries</b> are similar to what their name suggests - a dictionary. In a dictionary, you have an 'index' of words, and for each of them a definition. In python, the word is called a 'key', and the definition a 'value'. The values in a dictionary aren't numbered - tare similar to what their name suggests - a dictionary. In a dictionary, you have an 'index' of words, and for each of them a definition. In python, the word is called a 'key', and the definition a 'value'. The values in a dictionary aren't numbered - they aren't in any specific order, either - the key does the same thing. You can add, remove, and modify the values in dictionaries. Example: telephone book.</entry>
+			</unorderedList>
+		</section>
+		<section title="Tuples">
+			<p>Tuples are pretty easy to make. You give your tuple a name, then after that the list of values it will carry. For example, the months of the year:</p>
+			<code title="creating a tuple">
+				<l>months = ('January','February','March','April','May','June',\</l>
+				<l>'July','August','September','October','November','  December')</l>
+			</code>
+			<unorderedList>
+				<entry>Note that the '\' thingy at the end of sthurlow.comthe first line carries over that line of code to the next line. It is usefull way of making big lines more readable.</entry>
+				<entry>Technically you don't have to put those parentheses there (the '(' and ')' thingies) but it stops python from getting things confused.</entry>
+				<entry>You may have spaces after the commas if you feel it necessary - it doesn't really matter.</entry>
+			</unorderedList>
+			<p>Python then organises those values in a handy, numbered index - starting from zero, in the order that you entered them in. It would be organised like this:</p>
+			<table title="tuple indicies">
+			    <row>
+				    <column title="Index" width="20%"/>
+				    <column title="Value" width="80%"/>
+				</row>
+				<row>
+					<cell>0</cell>
+					<cell>January</cell>
+				</row>
+				<row>
+					<cell>1</cell>
+					<cell>Feb</cell>
+				</row>
+				<row>
+					<cell>2</cell>
+					<cell>Mar</cell>
+				</row>
+				<row>
+					<cell>3</cell>
+					<cell>Apr</cell>
+				</row>
+				<row>
+					<cell>4</cell>
+					<cell>May</cell>
+				</row>
+				<row>
+					<cell>5</cell>
+					<cell>Jun</cell>
+				</row>
+				<row>
+					<cell>6</cell>
+					<cell>Jul</cell>
+				</row>
+				<row>
+					<cell>7</cell>
+					<cell>Aug</cell>
+				</row>
+				<row>
+					<cell>8</cell>
+					<cell>Sep</cell>
+				</row>
+				<row>
+					<cell>9</cell>
+					<cell>Oct</cell>
+				</row>
+				<row>
+					<cell>10</cell>
+					<cell>Nov</cell>
+				</row>
+				<row>
+					<cell>11</cell>
+					<cell>Dec</cell>
+				</row>
+			</table>
+			<p>And that is tuples! Really easy...</p>
+		</section>
+		<section title="Lists">
+			<p>Lists are extremely similar to tuples. Lists are modifiable (or 'mutable', as a programmer may say), so their values can be changed. Most of the time we use lists, not tuples, because we want to easily change the values of things if we need to.</p>
+			<p>Lists are defined very similarly to tuples. Say you have FIVE cats, called Tom, Snappy, Kitty, Jessie and Chester. To put them in a list, you would do this:</p>
+			<code title="Creating a List">
+				<l>cats = ['Tom', 'Snappy', 'Kitty', 'Jessie', 'Chester']</l>
+			</code>
+			<p>As you see, the code is exactly the same as a tuple, EXCEPT that all the values are put between square brackets, not parentheses. Again, you don't have to have spaces after the comma.</p>
+			<p>You recall values from lists exactly the same as you do with tuples. For example, to print the name of your 3rd cat you would do this:</p>
+			<code title="Recalling items from a list">
+				<l>print cats[2]</l>
+			</code>
+			<p>You can also recall a range of examples, like above, for example - cats[0:2] would recall your 1st and 2nd cats.</p>
+			<p>Where lists come into their own is how they can be modified. To add a value to a list, you use the 'append()' function. Let's say you got a new cat called Catherine. To add her to the list you'd do this:</p>
+			<code title="Adding items to a list">
+				<l>cats.append('Catherine')</l>
+			</code>
+			<p>That's a little weird, isn't it? I'll explain. That function is in a funny spot - after a period (the '.' kind of period, not otherwise), after the list name. You'll get to see those things more in a later lesson. For the meanwhile, this is the form of the function that adds a new value to a list:</p>
+			<code title="Using the append function">
+				<l>#add a new value to the end of a list:</l>
+				<l><i>list_name</i>.append(<b>value-to-add</b>)</l>
+				<l></l>
+				<l>#e.g. to add the number 5038 to the list 'numbers':</l>
+				<l>numbers.append(5038)</l>
+			</code>
+			<p>Clears things up? Good!</p>
+			<p>Now to a sad situation - Snappy was shot by a neighbour, and eaten for their dinner (good on 'em!). You need to remove him (or her) from the list. Removing that sorry cat is an easy task, thankfully, so you have to wallow in sadness for as short a time as possible:</p>
+			<code title="Deleting an item">
+				<l>#Remove your 2nd cat, Snappy. Woe is you.</l>
+				<l>del cats[1]</l>
+			</code>
+			<p>You've just removed the 2nd cat in your list - poor old Snappy.</p>
+			<p>And with that morbid message, lets move on to...</p>
+		</section>
+		<section title="Dictionaries">
+			<p>Ok, so there is more to life than the names of your cats. You need to call your sister, mother, son, the fruit man, and anyone else who needs to know that their favourite cat is dead. For that you need a telephone book.</p>
+			<p>Now, the lists we've used above aren't really suitable for a telephone book. You need to know a number based on someone's name - not the other way around, like what we did with the cats. In the examples of months and cats, we gave the computer a number, and it gave us a name. This time we want to give the computer a name, and it give us a number. For this we need &lt;i&gt;Dictionaries&lt;/i&gt;.</p>
+			<p>So how do we make a dictionary? Put away your binding equipment, it isn't that advanced.</p>
+			<p>Remember, dictionaries have keys, and values. In a phone book, you have people's names, then their numbers. See a similarity?</p>
+			<p>When you initially create a dictionary, it is very much like making a tuple or list. Tuples have ( and ) things, lists have [ and ] things. Guess what! dictionaries have { and } things - curly braces. Here is an example below, showing a dictionary with four phone numbers in it:</p>
+			<code title="Creating a dictionary">
+			<l>#Make the phone book:</l>
+			<l>phonebook = {'Andrew Parson':8806336, \</l>
+			<l>'Emily Everett':6784346, 'Peter Power':7658344, \</l>
+			<l>'Lewis Lame':1122345}</l>
+			</code>
+			<p>the program would then print Lewis Lame's number onscreen. Notice how instead of identifying the value by a number, like in the cats and months examples, we identify the value, using another value - in this case the person's name.</p>
+			<p>Ok, you've created a new phone book. Now you want to add new numbers to the book. What do you do? A very simple line of code:</p>
+			<code title="Adding entries to a dictionary">
+				<l>#Add the person 'Gingerbread Man' to the phonebook:</l>
+				<l></l>
+				<l>phonebook['Gingerbread Man'] = 1234567</l>
+				<l></l>
+				<l># Didn't think I would give you</l>
+				<l># my real number now, would I?</l>
+			</code>
+			<p>All that line is saying is that there is a person called Gingerbread Man in the phone book, and his number is 1234567. In other words - the &lt;i&gt;key&lt;/i&gt; is '&lt;u&gt;Gingerbread Man&lt;/u&gt;', and the &lt;i&gt;value&lt;/i&gt; is &lt;u&gt;1234567&lt;/u&gt;.</p>
+			<p>You delete entries in a dictionary just like in a list. Let's say Andrew Parson is your neighbour, and shot your cat. You never want to talk to him again, and therefore don't need his number. Just like in a list, you'd do this:</p>
+			<code title="Removing entries from a dictionary">
+				<l>del phonebook['Andrew Parson']</l>
+			</code>
+			<p>Again, very easy. the 'del' operator deletes any function, variable, or entry in a list or dictionary (An entry in a dictionary is just a variable with a number <i>or</i> text string as a name. This comes in handy later on.)</p>
+			<p>remember that append function that we used with the list? Well, there are quite a few of those that can be used with dictionaries. Below, I will write you a program, and it will incorporate some of those functions in. It will have comments along the way explaining what it does.</p>
+			<p>Type this program into Python IDLE (you can skip the comments). Experiment as much as you like with it. Type it where you see the lines beginning with &gt;&gt;&gt;</p>
+			<code title="Functions of dictionaries">
+				<l>#A few examples of a dictionary</l>
+				<l></l>
+				<l>#First we define the dictionary</l>
+				<l>#it will have nothing in it this time</l>
+				<l>ages = {}</l>
+				<l></l>
+				<l>#Add a couple of names to the dictionary</l>
+				<l>ages['Sue'] = 23</l>
+				<l>ages['Peter'] = 19</l>
+				<l>ages['Andrew'] = 78</l>
+				<l>ages['Karren'] = 45</l>
+				<l></l>
+				<l>#Use the function has_key() - </l>
+				<l>#This function takes this form:</l>
+				<l>#function_name.has_key(key-name)</l>
+				<l>#It returns TRUE</l>
+				<l>#if the dictionary has key-name in it</l>
+				<l>#but returns FALSE if it doesn't.</l>
+				<l>#Remember - this is how 'if' statements work -</l>
+				<l>#they run if something is true</l>
+				<l>#and they don't when something is false.</l>
+				<l>if ages.has_key('Sue'):</l>
+				<l>    print "Sue is in the dictionary. She is", \</l>
+				<l>ages['Sue'], "years old"</l>
+				<l></l>
+				<l>else:</l>
+				<l>    print "Sue is not in the dictionary"</l>
+				<l></l>
+				<l>#Use the function keys() - </l>
+				<l>#This function returns a list</l>
+				<l>#of all the names of the keys.</l>
+				<l>#E.g.</l>
+				<l>print "The following people are in the dictionary:"</l>
+				<l>print ages.keys()</l>
+				<l></l>
+				<l>#You could use this function to</l>
+				<l>#put all the key names in a list:</l>
+				<l>keys = ages.keys()</l>
+				<l></l>
+				<l>#You can also get a list</l>
+				<l>#of all the values in a dictionary.</l>
+				<l>#You use the values() function:</l>
+				<l>print "People are aged the following:", \</l>
+				<l>ages.values()</l>
+				<l></l>
+				<l>#Put it in a list:</l>
+				<l>values = ages.values()</l>
+				<l></l>
+				<l>#You can sort lists, with the sort() function</l>
+				<l>#It will sort all values in a list</l>
+				<l>#alphabetically, numerically, etc...</l>
+				<l>#You can't sort dictionaries - </l>
+				<l>#they are in no particular order</l>
+				<l>print keys</l>
+				<l>keys.sort()</l>
+				<l>print keys</l>
+				<l></l>
+				<l>print values</l>
+				<l>values.sort()</l>
+				<l>print values</l>
+				<l></l>
+				<l>#You can find the number of entries</l>
+				<l>#with the len() function:</l>
+				<l>print "The dictionary has", \</l>
+				<l>len(ages), "entries in it"</l>
+			</code>
+		</section>
+		<section title="Conclusion">
+			<p>There are many other functions you can use to work with lists and dictionaries - too many to go through right now. We'll leave the lesson at this point - you have learnt enough for one lesson.</p>
+			<p>Thanks to all</p>
+			<p>sthurlow.com</p>
+		</section>
+	</content>
+</lesson>
+</document>

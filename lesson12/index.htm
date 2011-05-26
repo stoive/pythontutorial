@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Lesson 12 - Programming a GUI</title>
+<!-- meta tags go here -->
+</head>
+
+<style type="text/CSS">
+
+div.CodeTitle	{ position: relative; float: center;
+                  top:0; width: 90%;
+                  background-color:Teal; color: White; }
+                  
+div.CodeBody    { position: relative; overflow: auto; float: center;
+                  top:1; width: 90%;
+                  background-color:silver; color: black;
+                  font-size: 115%; border: 0; }
+                
+div.ImageCaption { position: relative;
+                  top:1;
+                  background-color:Teal; color: White; }
+                  
+div.ImageBody   { position: relative;
+                  top:0;
+                  background-color:silver; color: black; }
+                  
+table.TableBody { position: relative; overflow: auto; float: center;
+                  top:1; width: 90%; 
+                  background-color:#EAEEFF; color: black;
+                  font-size: 110%; border-width: 0; }
+                  
+div.SidePanel   { position: absolute; float: left;
+                  top: 35; left: 5; width: 200; height: 800;
+                  background-color: #EAEEFF;
+                  border-style: solid; border-color: black; border-width: 1px;
+                  font-size: 80% }
+                  
+div.TextPanel   { position: absolute; top: 35; left: 220;
+                  background-color: #EAEEFF;
+                  border-style: solid; border-color: black; border-width: 1px;
+                  font-size: 80%; font-family: Arial,sans-serif; }
+
+div.RightPanel  { position: relative; 
+                  top: 8; left: 98%; width: 15;}
+
+div.Padding     { position: relative;
+                  width: 95%; }
+
+div.PaddingBig  { position: relative; align: center;
+                  background-color: #EAEEFF;
+                  width: 85%; }
+
+div.MenuSection { position: relative;
+                  width: 95%; top: 0; left: 0;
+                  background-color: teal; color: white; }
+
+div.MenuItem    { position: relative;
+                  width: 85%; top: 3;
+                  background-color: silver; color: black; }
+
+td.TableContent { background-color: silver; }
+
+
+</style>
+
+<body bgcolor="Teal">
+<div style="positioning:relative; top: 10; left: 50; background-color: teal">
+<script language="JavaScript" src="file:///E:/sthurlowcomBUILD/countdown.js"></script></div>
+<div style="positioning: relative;">&nbsp;</div>
+<div align="center" class="SidePanel">
+    <div align="left" class="PaddingBig">
+
+<h4>Sthurlow.com</h4>
+<div class="MenuSection">Python Tutorial<div align="right" style="background-color: #EAEEFF">
+<div align="center" class="MenuItem"><a href="file:///E:/sthurlowcomBUILD/python/lesson01/index.htm">Lesson 1</a></div>
+<div align="center" class="MenuItem"><a href="file:///E:/sthurlowcomBUILD/python/lesson02/index.htm">Lesson 2</a></div>
+<div align="center" class="MenuItem"><a href="file:///E:/sthurlowcomBUILD/python/lesson03/index.htm">Lesson 3</a></div>
+<div align="center" class="MenuItem"><a href="file:///E:/sthurlowcomBUILD/python/lesson04/index.htm">Lesson 4</a></div>
+<div align="center" class="MenuItem"><a href="file:///E:/sthurlowcomBUILD/python/lesson06/index.htm">Lesson 6</a></div>
+</div></div><p><a href="file:///E:/sthurlowcomBUILD/index.htm">Sthurlow.com Home</a></p></div>
+</div>
+
+<div align="center" class="TextPanel">
+    <div align="left" class="Padding">
+<h2>Programming a GUI</h2>
+<h3>What is a GUI?</h3>
+<p>It's been a while since I wrote my last lesson, and Civilization IV is much closer than it was before! I figured I'd write a tutorial on how to create a graphical user interface (or GUI). But what's a GUI (pronounced 'gooey')? Put simply, the GUI of a program are its buttons, scroll bars, check boxes, clickables, readables, lookables, and anything you are able to see. It is graphical, as opposed to what we are used to in python, which employs simple text, in a command-line interface (like good 'ol MSDOS). To make programs for the rest of the non-computer-knowledgeable people out there, you need a GUI.</p>
+
+<h3>What is WxPython?</h3>
+<p>go to the <a href="http://www.wxpython.org/">WxPython website</a>, and you will probably find an introduction that means very little to most people. WxPython is pretty much a tool for creating GUIs that will work on any computer with Windows or Linux. It keeps the look and feel of the programs around it, so a program written in WxPython will look like Windows XP in Windows XP, Windows 98 in Windows 98, and in linux will look like whatever you have hacked together at the time.</p>
+
+<h3>Getting started</h3>
+<p>The first thing you should do is <a href="http://www.wxpython.org/download.php">Download WxPython</a>, and follow the prompts in running your download to install it. WxPython is different in that it doesn't come with python by default, so you have to go get it yourself.</p>
+<p>Got it installed? Good. Now try these commands in the IDLE shell (that >>> thing):</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 1 - WxWindowy goodness</div>
+<div align="left" class="CodeBody">
+<pre>
+import wx
+app = wx.PySimpleApp()
+frame = wx.Frame(None, -1, "Hello, World!")
+frame.Show(True)
+app.MainLoop()
+</pre></div></div>
+<p>Now a window with the title "Hello, World!" pops up. Cool! Notice that until you typed <tt>app.MainLoop()</tt>, the program pretty much hangs? In my messing around, Windows thought the program wasn't responding. Although the window was displaying, the main program hadn't started.</p>
+<p>Now what did each line do?</p>
+<ul>
+<tt></tt>
+
+<tt></tt>
+
+<tt></tt>
+
+<tt></tt>
+<tt></tt>
+
+<tt></tt>
+
+</ul>
+<p>It is important to know what a window is when talking about programming. Probably in some vain attempt at making less programmers in this world, a window to a programmer is different to what a window is to the user. To the programmer, a window is anything that is visible onscreen. The frame we created is a window. If we were to add a button, it would be a window, too. It has all the properties of the basic window, plus a few others, like its click-ability. A drop-down list is a window, with even more properties than a button. But in the end, everything is based off this basic 'window', but with a few things of its own added. You could say that buttons and scroll bars are 'inhereted' from the basic window.</p>
+
+</div>
+</div></body>
+
+
+</html>

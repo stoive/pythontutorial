@@ -1,0 +1,419 @@
+<html>
+<head>
+<title>Lesson 5 - Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="keywords" content="civilization,civ2,civ3,civ4,civilization iii,civilization ii,civilization iv,mod,python,xml,script,install" />
+<meta name="description" content="A Python and XML tutorial aimed at Civilization IV modding" />
+</head><link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+
+<body bgcolor="Teal">
+<div align="center" class="SidePanel">
+<div align="left" class="PaddingBig">
+<div class="MenuSection">
+<h1>Sthurlow.com</h1>
+<h2>Civilization IV Python tutorial</h2><h3>The Python Tutorial</h3>
+<p>The original sthurlow.com python tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson01/">Installing Python</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson02/">Very Simple Programs</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson03/">Variables, Scripts</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson04/">Loops, Conditionals</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson05/">Functions</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson06/">Tuples, Lists, Dictionaries</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson07/">for Loop</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson08/">Classes</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson09/">Importing Modules</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson10/">File I/O</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson11/">Error Handling</a></div>
+</p>
+<h3>The Civ4 Programming Tutorial</h3>
+<p>All new Civ4 programming tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/">Lesson 1 (not released)</a></div>
+</p>
+<br /><br /></div></div>
+</div>
+
+<div align="center" class="TextPanel">
+<div align="left" class="Padding"><h2>Functions</h2>
+
+<h3>Introduction</h3>
+<p>Last lesson I said that we would delve into purposefull programming. That involves user input, and user input requires a thing called functions.</p>
+<p>What are functions? Well, in effect, functions are little self-contained programs that perform a specific task, which you can incorporate into your own, larger programs. After you have created a function, you can use it at any time, in any place. This saves you the time and effort of having to retell the computer what to do every time it does a common task, for example getting the user to type something in.</p>
+
+<h3>Using a function</h3>
+<p>Python has lots of pre-made functions, that you can use right now, simply by 'calling' them. 'Calling' a function involves you giving a function input, and it will return a value (like a variable would) as output. Don't understand? Here is the general form that calling a function takes:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 1 - How to call a function</div>
+<div align="left" class="CodeBody">
+<pre>
+function_name(parameters)
+</pre>
+</div>
+</div><p>See? Easy.</p>
+
+<ul><li>Function_name identifies which function it is you want to use (You'd figure...). For example, the function raw_input, which will be the first function that we will use.</li>
+<li>Parameters are the values you pass to the function to tell it what is should do, and how to do it.. for example, if a function multiplied any given number by five, the stuff in parameters tells the function which number it should multiply by five. Put the number 70 into parameters, and the function will do 70 x 5.</li>
+
+</ul>
+<h3>Parameters and Returned Values - Communicating with Functions</h3>
+<p>Well, that's all well and good that the program can multiply a number by five, but what does it have to show for it? A warm fuzzy feeling? Your program needs to see the results of what happened, to see what 70 x 5 is, or to see if there is a problem somewhere (like you gave it a letter instead of a number). So how does a function show what is does?</p>
+<p>Well, in effect, when a computer runs a function, it doesn't actually see the function name, but the result of what the function did. Variables do the exact same thing - the computer doesn't see the variable name, it sees the value that the variable holds. Lets call this program that multiplied any number by five, multiply(). You put the number you want multiplied in the brackets. So if you typed this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 2 - Using a function</div>
+<div align="left" class="CodeBody">
+<pre>
+a = multiply(70)
+</pre>
+</div>
+</div><p>The computer would actually see this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 3 - What the computer sees</div>
+<div align="left" class="CodeBody">
+<pre>
+a = 350
+</pre>
+</div>
+</div><p>note: don't bother typing in this code - multiply() isn't a real function, unless you create it.</p>
+<p>The function ran itself, then returned a number to the main program, based on what parameters it was given.</p>
+<p>Now let's try this with a real function, and see what it does. The function is called raw_input, and asks the user to type in something. It then turns it into a string of text. Try the code below:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 4 - Using raw_input</div>
+<div align="left" class="CodeBody">
+<pre>
+# this line makes 'a' equal to whatever you type in
+a = raw_input("Type in something, and it will be repeated on screen:")
+# this line prints what 'a' is now worth
+print a
+</pre>
+</div>
+</div><p>Say in the above program, you typed in 'hello' when it asked you to type something in. To the computer, this program would look like this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 5 - What the computer sees</div>
+<div align="left" class="CodeBody">
+<pre>
+a = "hello"
+print "hello"
+</pre>
+</div>
+</div><p>Remember, a variable is just a stored value. To the computer, the variable 'a' doesn't look like 'a' - it looks like the value that is stored inside it. Functions are similar - to the main program (that is, the program that is running the function), they look like the value of what they give in return of running.</p>
+
+<h3>A Calculator Program</h3>
+<p>Lets write another program, that will act as a calculator. This time it will do something more adventerous than what we have done before. There will be a menu, that will ask you whether you want to multiply two numbers together, add two numbers together, divide one number by another, or subtract one number from another. Only problem - the raw_input function returns what you type in as a string - we want the number 1, not the letter 1 (and yes, in python, there is a difference.).</p>
+<p>Luckily, somebody wrote the function input, which returns what you typed in, to the main program - but this time, it puts it in as a number. If you type an integer (a whole number), what comes out of input is an integer. And if you put that integer into a variable, the variable will be an integer-type variable, which means you can add and subtract, etc.</p>
+<p>Now, lets design this calculator properly. We want a menu that is returned to every time you finish adding, subtracting, etc. In other words, to loop (HINT!!!) while (BIG HINT!!!) you tell it the program should still run.</p>
+<p>We want it to do an option in the menu if you type in that number. That involves you typing in a number (a.k.a input) and an if loop.</p>
+<p>Lets write it out in understandable English first:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 6 - human-language example</div>
+<div align="left" class="CodeBody">
+<pre>
+START PROGRAM
+print opening message
+
+while we let the program run, do this:
+    #Print what options you have
+    print Option 1 - add
+    print Option 2 - subtract
+    print Option 3 - multiply
+    print Option 4 - divide
+    print Option 5 - quit program
+    
+    ask for which option is is you want
+    if it is option 1:
+        ask for first number
+        ask for second number
+        add them together
+        print the result onscreen
+    if it is option 2:
+        ask for first number
+        ask for second number
+        subtract one from the other
+        print the result onscreen
+    if it is option 3:
+        ask for first number
+        ask for second number
+        multiply!
+        print the result onscreen
+    if it is option 4:
+        ask for first number
+        ask for second number
+        divide one by the other
+        print the result onscreen
+    if it is option 5:
+        tell the loop to stop looping
+Print onscreen a goodbye message
+END PROGRAM
+</pre>
+</div>
+</div><p>Lets put this in something that python can understand:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 7 - Python verion of menu</div>
+<div align="left" class="CodeBody">
+<pre>
+#calculator program
+
+#this variable tells the loop whether it should loop or not.
+# 1 means loop. anything else means don't loop.
+
+loop = 1
+
+#this variable holds the user's choice in the menu:
+
+choice = 0
+
+while loop == 1:
+    #print what options you have
+    print "Welcome to calculator.py"
+
+    print "your options are:"
+    print " "
+    print "1) Addition"
+    print "2) Subtraction"
+
+    print "3) Multiplication"
+
+    print "4) Division"
+    print "5) Quit calculator.py"
+    print " "
+
+    choice = input("Choose your option: ")
+    if choice == 1:
+        add1 = input("Add this: ")
+        add2 = input("to this: ")
+        print add1, "+", add2, "=", add1 + add2
+    elif choice == 2:
+        sub2 = input("Subtract this: ")
+        sub1 = input("from this: ")
+        print sub1, "-", sub2, "=", sub1 - sub2
+    elif choice == 3:
+        mul1 = input("Multiply this: ")
+        mul2 = input("with this: ")
+        print mul1, "*", mul2, "=", mul1 * mul2
+    elif choice == 4:
+        div1 = input("Divide this: ")
+        div2 = input("by this: ")
+        print div1, "/", div2, "=", div1 / div2
+    elif choice == 5:
+        loop = 0
+	
+print "Thankyou for using calculator.py!"
+</pre>
+</div>
+</div><p>Wow! That is an impressive program! Paste it into python IDLE, save it as 'calculator.py' and run it. Play around with it - try all options, entering in integers (numbers without decimal points), and numbers with stuff after the decimal point (known in programming as a floating point). Try typing in text, and see how the program chucks a minor fit, and stops running (That can be dealt with, using error handling, which we can address later.)</p>
+
+<h3>Define Your Own Functions</h3>
+<p>Well, it is all well and good that you can use other people's functions, but what if you want to write your own functions, to save time, and maybe use them in other programs? This is where the 'def' operator comes in. (An operator is just something that tells python what to do, e.g. the '+' operator tells python to add things, the 'if' operator tells python to do something if conditions are met.)</p>
+<p>This is how the 'def' operator works:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 8 - The def operator</div>
+<div align="left" class="CodeBody">
+<pre>
+def function_name(parameter_1,parameter_2):
+    {this is the code in the function}
+    {more code}
+    {more code}
+    return {value to return to the main program}
+{this code isn't in the function}
+{because it isn't indented}
+#remember to put a colon ":" at the end
+#of the line that starts with 'def'
+</pre>
+</div>
+</div><p>function_name is the name of the function. You write the code that is in the function below that line, and have it indented. (We will worry about parameter_1 and parameter_2 later, for now imagine there is nothing between the parentheses.</p>
+<p>Functions run completely independent of the main program. Remember when I said that when the computer comes to a function, it doesn't see the function, but a value, that the function returns? Here's the quote:</p>
+<p>Functions run completely independent of the main program. Remember when I said that when the computer comes to a function, it doesn't see the function, but a value, that the function returns? Here's the quote:</p>
+<p><i>To the computer, the variable 'a' doesn't look like 'a' - it looks like the value that is stored inside it. Functions are similar - to the main program (that is, the program that is running the function), they look like the value of what they give in return of running.</i></p>
+<p>A function is like a miniture program that some parameters are given to - it then runs itself, and then returns a value. Your main program sees only the returned value. If that function flew to the moon and back, and then at the end had:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 9 - return</div>
+<div align="left" class="CodeBody">
+<pre>
+return "Hello"
+</pre>
+</div>
+</div><p>then all your program would see is the string "hello", where the name of the function was. It would have no idea what else the program did.</p>
+<p>Because it is a seperate program, a function doesn't see any of the variables that are in your main program, and your main program doesn't see any of the variables that are in a function. For example, here is a function that prints the words "hello" onscreen, and then returns the number '1234' to the main program:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 10 - using return</div>
+<div align="left" class="CodeBody">
+<pre>
+# Below is the function
+def hello():
+    print "hello"
+    return 1234
+
+# And here is the function being used
+print hello()
+</pre>
+</div>
+</div><p>Think about the last line of code above. What did it do? Type in the program (you can skip the comments), and see what it does. The output looks like this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 11 - the output</div>
+<div align="left" class="CodeBody">
+<pre>
+hello
+1234
+</pre>
+</div>
+</div><p>So what happened?</p>
+<ol>
+<li>when 'def hello()' was run, a function called 'hello' was created</li>
+<li>When the line 'print hello()' was run, the function 'hello' was executed (The code inside it was run)</li>
+<li>The function 'hello' printed "hello" onscreen, then returned the number '1234' back to the main program</li>
+<li>The main program now sees the line as 'print 1234' and as a result, printed '1234</li>
+</ol>
+<p>That accounts for everything that happened. remember, that the main program had NO IDEA that the words "hello" were printed onscreen. All it saw was '1234', and printed that onscreen.</p>
+
+<h3>Passing Parameters to functions</h3>
+<p>There is one more thing we will cover in this (monsterously huge) lesson - passing parameters to a function. Think back to how we defined functions:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 12 - Defining functions with parameters</div>
+<div align="left" class="CodeBody">
+<pre>
+def function_name(parameter_1,parameter_2):
+    {this is the code in the function}
+    {more code}
+    {more code}
+    return {value (e.g. text or number) to return to the main program}
+</pre>
+</div>
+</div><p>Where <tt>parameter_1</tt> and <tt>parameter_2</tt> are (between the parentheses), you put the names of variables that you want to put the parameters into. Put as many as you need, just have them seperated by commas. When you run a function, the first value you put inside the parentheses would go into the variable where parameter_1 is. The second one (after the first comma) would go to the variable where parameter_2 is. This goes on for however many parameters there are in the function (from zero, to the sky) For example:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 13 - how parameters work</div>
+<div align="left" class="CodeBody">
+<pre>
+def funnyfunction(first_word,second_word,third_word):
+    print "The word created is: " + first_word + second_word + third_word
+    return first_word + second_word + third_word
+</pre>
+</div>
+</div><p>When you run the function above, you would type in something like this: funnyfunction("meat","eater","man"). The first value (that is, "meat") would be put into the variable called first_word. The second value inside the brackets (that is, "eater") would be put into the variable called second_word, and so on. This is how values are passed from the main program to functions - inside the parentheses, after the function name.</p>
+
+<h3>A final program</h3>
+<p>Think back to that calculator program. Did it look a bit messy to you? I think it did, so lets re-write it, with functions.</p>
+<p>To design - First we will define all the functions we are going to use with the 'def' operator (still remember what an operator is ;) ). Then we will have the main program, with all that messy code replaced with nice, neat functions. This will make it so much easier to look at again in the future.</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 14 - Calculator program</div>
+<div align="left" class="CodeBody">
+<pre>
+# calculator program
+
+# NO CODE IS REALLY RUN HERE, IT IS ONLY TELLING US WHAT WE WILL DO LATER
+# Here we will define our functions
+# this prints the main menu, and prompts for a choice
+def menu():
+    #print what options you have
+    print "Welcome to calculator.py"
+    print "your options are:"
+    print " "
+    print "1) Addition"
+    print "2) Subtraction"
+    print "3) Multiplication"
+    print "4) Division"
+    print "5) Quit calculator.py"
+    print " "
+    return input ("Choose your option: ")
+    
+# this adds two numbers given
+def add(a,b):
+    print a, "+", b, "=", a + b
+    
+# this subtracts two numbers given
+def sub(a,b):
+    print b, "-", a, "=", b - a
+    
+# this multiplies two numbers given
+def mul(a,b):
+    print a, "*", b, "=", a * b
+    
+# this divides two numbers given
+def div(a,b):
+    print a, "/", b, "=", a / b
+    
+# NOW THE PROGRAM REALLY STARTS, AS CODE IS RUN
+loop = 1
+choice = 0
+while loop == 1:
+    choice = menu()
+    if choice == 1:
+        add(input("Add this: "),input("to this: "))
+    elif choice == 2:
+        sub(input("Subtract this: "),input("from this: "))
+    elif choice == 3:
+        mul(input("Multiply this: "),input("by this: "))
+    elif choice == 4:
+        div(input("Divide this: "),input("by this: "))
+    elif choice == 5:
+        loop = 0
+
+print "Thankyou for using calculator.py!"
+
+# NOW THE PROGRAM REALLY FINISHES
+</pre>
+</div>
+</div><p>The initial program had 34 lines of code. The new one actually had 35 lines of code! It is a little longer, but if you look at it the right way, it is actually simpler.</p>
+<p>You defined all your functions at the top. This really isn't part of your main program - they are just lots of little programs, that you will call upon later. You could even re-use these in another program if you needed them, and didn't want to tell the computer how to add and subtract again.</p>
+<p>If you look at the main part of the program (between the line 'loop = 1' and 'print "Thankyou for..."'), it is only 15 lines of code. That means that if you wanted to write this program differently, you would only have to write 15 or so lines, as opposed to the 34 lines you would normally have to without functions.</p>
+
+<h3>Tricky Ways You Can Pass Parameters</h3>
+<p>Finally, as a bit of an interlude, I will explain what the line <tt>add(input("Add this: "),input("to this: "))</tt> means.</p>
+<p>I wanted to fit everything onto one line, with as few variables as possible. Remember what functions look like to the main program? Whatever value they return. If the numbers you passed to the add() function were 2 and 30, the main program would see this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 15 - The results of fancy parameter work</div>
+<div align="left" class="CodeBody">
+<pre>
+        add(2,30)
+</pre>
+</div>
+</div><p>The add program would then run, adding 2 and 30, then printing the result. The add program has no 'return' operator - it doesn't return anything to the main program. It simply adds two numbers and prints them onscreen, and the main program doesn't see anything of it.</p>
+<p>Instead of <tt>(input("Add this: "),input("to this: "))</tt> as the parameters for the add program you could have variables. E.g.</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 16 - variables as parameters</div>
+<div align="left" class="CodeBody">
+<pre>
+num1 = 45
+num2 = 7
+add(num1,num2)
+</pre>
+</div>
+</div><p>For the above, remember that the function you are passing the variables to cannot change the variables themselves - they are simply used as values. You could even put the values straight into the function:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 17 - the end result</div>
+<div align="left" class="CodeBody">
+<pre>
+add(45,7)
+</pre>
+</div>
+</div><p>This is because the only thing the function sees are the values that are passed on as parameters. Those values are put into the variables that are mentioned when 'add' is defined (the line 'def add(a,b)' ). The function then uses those parameters to do it's job.</p>
+<p>In short:</p>
+
+<ul><li>The only thing functions see of the main program is the parameters that are passed to it</li>
+<li>the only thing the main program seens of functions is the returned value that it passes back</li>
+
+</ul>
+<h3>Conclusion</h3>
+<p>WHOA!!!! WHAT A KILLER LESSON!!! But we got through it, and I made minimal typos. Great!</p>
+<p>I haven't decided what will happen in lesson 6. All I can say is I am having a BIG breather, because this lesson took me many hours to write.</p>
+<p>Thanks to all,</p>
+<p>sthurlow.com</p>
+
+</div></div></body>
+</html>

@@ -1,0 +1,319 @@
+<html>
+<head>
+<title>Lesson 4 - Loops, Loops, Loops, Loops...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="keywords" content="civilization,civ2,civ3,civ4,civilization iii,civilization ii,civilization iv,mod,python,xml,script,install" />
+<meta name="description" content="A Python and XML tutorial aimed at Civilization IV modding" />
+</head><link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+
+<body bgcolor="Teal">
+<div align="center" class="SidePanel">
+<div align="left" class="PaddingBig">
+<div class="MenuSection">
+<h1>Sthurlow.com</h1>
+<h2>Civilization IV Python tutorial</h2><h3>The Python Tutorial</h3>
+<p>The original sthurlow.com python tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson01/">Installing Python</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson02/">Very Simple Programs</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson03/">Variables, Scripts</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson04/">Loops, Conditionals</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson05/">Functions</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson06/">Tuples, Lists, Dictionaries</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson07/">for Loop</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson08/">Classes</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson09/">Importing Modules</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson10/">File I/O</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson11/">Error Handling</a></div>
+</p>
+<h3>The Civ4 Programming Tutorial</h3>
+<p>All new Civ4 programming tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/">Lesson 1 (not released)</a></div>
+</p>
+<br /><br /></div></div>
+</div>
+
+<div align="center" class="TextPanel">
+<div align="left" class="Padding"><h2>Loops, Loops, Loops, Loops...</h2>
+
+<h3>Introduction</h3>
+<p>(Our final lesson before we get into interacting with human input. Can't wait, can you?)</p>
+<p>Just imagine you needed a program to do something 20 times. What would you do? You could copy and paste the code 20 times, and have a virtually unreadable program, not to mention slow and pointless. Or, you could tell the computer to repeat a bit of code between point A and point B, until the time comes that you need it to stop. Such a thing is called a loop.</p>
+
+<h3>The 'while' loop</h3>
+<p>The following are examples of a type of loop, called the 'while' loop:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 1 - The while loop</div>
+<div align="left" class="CodeBody">
+<pre>
+a = 0
+while a < 10:
+    a = a + 1
+    print a
+</pre>
+</div>
+</div><p>How does this program work? Lets go through it in English:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 2 - plain-language while loop</div>
+<div align="left" class="CodeBody">
+<pre>
+'a' now equals 0
+As long as 'a' is less than 10, do the following:
+    Make 'a' one larger than what it already is.
+    print on-screen what 'a' is now worth.
+</pre>
+</div>
+</div><p>What does this do? Lets go through what the computer would be 'thinking' when it is in the 'while' loop:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 3 - while loop process</div>
+<div align="left" class="CodeBody">
+<pre>
+#JUST GLANCE OVER THIS QUICKLY
+#(It looks fancy, but is really simple)
+Is 'a' less than 10? YES (its 0)
+Make 'a' one larger (now 1)
+print on-screen what 'a' is (1)
+
+Is 'a' less than 10? YES (its 1)
+Make 'a' one larger (now 2)
+print on-screen what 'a' is (2)
+
+Is 'a' less than 10? YES (its 2)
+Make 'a' one larger (now 3)
+print on-screen what 'a' is (3)
+
+Is 'a' less than 10? YES (its 3)
+Make 'a' one larger (now 4)
+print on-screen what 'a' is (4)
+
+Is 'a' less than 10? YES (its 4)
+Make 'a' one larger (now 5)
+print on-screen what 'a' is (5)
+
+Is 'a' less than 10? YES (its 5)
+Make 'a' one larger (now 6)
+print on-screen what 'a' is (6)
+
+Is 'a' less than 10? YES (its 6)
+Make 'a' one larger (now 7)
+print on-screen what 'a' is (7)
+
+Is 'a' less than 10? YES (are you still here?)
+Make 'a' one larger (now 8)
+print on-screen what 'a' is (8)
+
+Is 'a' less than 10? YES (its 8)
+Make 'a' one larger (now 9)
+print on-screen what 'a' is (9)
+
+Is 'a' less than 10? YES (its 9)
+Make 'a' one larger (now 10)
+print on-screen what 'a' is (10)
+
+Is 'a' less than 10? NO (its 10, therefore isn't less than 10)
+Don't do the loop
+There's no code left to do, so the program ends
+</pre>
+</div>
+</div><p>So in short, try to think of it that way when you write 'while' loops. This is how you write them, by the way (and a couple of examples:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 4 - while loop form, and example</div>
+<div align="left" class="CodeBody">
+<pre>
+while {condition that the loop continues}:
+    {what to do in the loop}
+    {have it indented, usually four spaces}
+{the code here is not looped}
+{because it isn't indented}
+
+#EXAMPLE
+#Type this in, see what it does
+x = 10
+while x != 0:
+    print x
+    x = x - 1
+    print "wow, we've counted x down, and now it equals", x
+print "And now the loop has ended."
+</pre>
+</div>
+</div><p>Remember, to make a program, you open IDLE, click File > New Window, type your program in the new window, then press F5 to run.</p>
+
+<h3>Boolean Expressions (Boolean... what?!?)</h3>
+<p>What do you type in the area marked {conditions that the loop continues}? The answer is a boolean expression.</p>
+<p>What? A forgotten concept for the non-math people here. Never mind, boolean expression just means a question that can be answered with a TRUE or FALSE response. For example, if you wanted to say your age is the same as the person next to you, you would type:</p>
+<p>My age == the age of the person next to me</p>
+<p>And the statement would be TRUE. If you were younger than the person opposite, you'd say:</p>
+<p>My age < the age of the person opposite me</p>
+<p>And the statement would be TRUE. If, however, you were to say the following, and the person opposite of you was younger than you:</p>
+<p>My age < the age of the person opposite me</p>
+<p>The statement would be FALSE - the truth is that it is the other way around. This is how a loop thinks - if the expression is true, keep looping. If it is false, don't loop. With this in mind, lets have a look at the operators (symbols that represent an action) that are involved in boolean expressions:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Table 1 - Boolean operators</div>
+<table class="TableBody">
+<tr>
+<td class="TableContent" width="20%"><b>Expression</b></td>
+<td class="TableContent" width="80%"><b>Function</b></td>
+</tr>
+<tr>
+<td class="TableContent"><</td>
+<td class="TableContent">less than</td>
+</tr>
+<tr>
+<td class="TableContent"><=</td>
+<td class="TableContent">less that or equal to</td>
+</tr>
+<tr>
+<td class="TableContent">></td>
+<td class="TableContent">greater than</td>
+</tr>
+<tr>
+<td class="TableContent">>=</td>
+<td class="TableContent">greater than or equal to</td>
+</tr>
+<tr>
+<td class="TableContent">!=</td>
+<td class="TableContent">not equal to</td>
+</tr>
+<tr>
+<td class="TableContent"><></td>
+<td class="TableContent">not equal to (alternate)</td>
+</tr>
+<tr>
+<td class="TableContent">==</td>
+<td class="TableContent">equal to</td>
+</tr>
+</table>
+</div><br /><p>Dont get '=' and '==' mixed up - the '=' operator makes what is on the left equal to what is on the right. the '==' operator says whether the thing on the left is the same as what is on the right, and returns true or false.</p>
+
+<h3>Conditional Statements</h3>
+<p>OK! We've (hopefully) covered 'while' loops. Now let's look at something a little different - conditionals.</p>
+<p>Conditionals are where a section of code is only run if certain conditions are met. This is similar to the 'while' loop you just wrote, which only runs when x doesn't equal 0. However, Conditionals are only run once. The most common conditional in any program language, is the 'if' statement. Here is how it works:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 5 - if statement and example</div>
+<div align="left" class="CodeBody">
+<pre>
+if {conditions to be met}:
+    {do this}
+    {and this}
+    {and this}
+{but this happens regardless}
+{because it isn't indented}
+
+#EXAMPLE 1
+y = 1
+if y == 1:
+    print "y still equals 1, I was just checking"
+
+#EXAMPLE 2
+print "We will show the even numbers up to 20"
+n = 1
+while n <= 20:
+    if n % 2 == 0:
+        print n
+    n = n + 1
+print "there, done."
+</pre>
+</div>
+</div><p>Example 2 there looks tricky. But all we have done is run an 'if' statement every time the 'while' loop runs. Remember that the % just means the remainder from a division - just checking that there is nothing left over if the number is divided by two - showing it is even. If it is even, it prints what 'n' is.</p>
+
+<h3>'else' and 'elif' - When it Ain't True</h3>
+<p>There are many ways you can use the 'if' statement, do deal with situations where your boolean expression ends up FALSE. They are 'else' and 'elif'.</p>
+<p>'else' simply tells the computer what to do if the conditions of 'if' arent met. For example, read the following:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 6 - the else statement</div>
+<div align="left" class="CodeBody">
+<pre>
+a = 1
+if a > 5:
+    print "This shouldn't happen."
+else:
+    print "This should happen."
+</pre>
+</div>
+</div><p>'a' is not greater than five, therefore what is under 'else' is done.</p>
+<p>'elif' is just a shortened way of saying 'else if'. When the 'if' statement fails to be true, 'elif' will do what is under it IF the conditions are met. For example:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 7 - The elif statement</div>
+<div align="left" class="CodeBody">
+<pre>
+z = 4
+if z > 70:
+    print "Something is very wrong"
+elif z < 7:
+    print "This is normal"
+</pre>
+</div>
+</div><p>The 'if' statement, along with 'else' and 'elif' follow this form:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 8 - the complete if syntax</div>
+<div align="left" class="CodeBody">
+<pre>
+if {conditions}:
+    {run this code}
+elif {conditions}:
+    {run this code}
+elif {conditions}:
+    {run this code}
+else:
+    {run this code}
+
+#You can have as many or as little elif statements as you need
+#anywhere from zero to the sky.
+#You can have at most one else statement
+#and only after all other ifs and elifs.
+</pre>
+</div>
+</div><p>One of the most important points to remember is that you MUST have a colon : at the end of every line with an 'if', 'elif', 'else' or 'while' in it. I forgot that, and as a result a stack of people got stumped at this lesson (sorry ;) ).</p>
+
+<h3>Indentation</h3>
+<p>One other point is that the code to be executed if the conditions are met, MUST BE INDENTED. That means that if you want to loop the next five lines with a 'while' loop, you must put a set number of spaces at the beginning of each of the next five lines. This is good programming practice in any language, but python requires that you do it. Here is an example of both of the above points:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 9 - Indentation</div>
+<div align="left" class="CodeBody">
+<pre>
+a = 10
+while a > 0:
+    print a
+    if a > 5:
+        print "Big number!"
+    elif a % 2 != 0:
+        print "This is an odd number"
+        print "It isn't greater than five, either"
+    else:
+        print "this number isn't greater than 5"
+        print "nor is it odd"
+        print "feeling special?"
+    a = a - 1
+    print "we just made 'a' one less than what it was!"
+    print "and unless a is not greater than 0, we'll do the loop again."
+print "well, it seems as if 'a' is now no bigger than 0!"
+print "the loop is now over, and without furthur adue, so is this program!"
+</pre>
+</div>
+</div><p>Notice the three levels of indents there:</p>
+<ol>
+<li>Each line in the first level starts with no spaces. It is the main program, and will always execute.</li>
+<li>Each line in the second level starts with four spaces. When there is an 'if' or loop on the first level, everything on the second level after that will be looped/'ifed', until a new line starts back on the first level again.</li>
+<li>Each line in the third level starts with eight spaces. When there is an 'if' or loop on the second level, everything on the third level after that will be looped/'ifed', until a new line starts back on the second level again.</li>
+<li>This goes on infinitely, until the person writing the program has an internal brain explosion, and cannot understand anything he/she has written.</li>
+</ol>
+<p>There is another loop, called the 'for' loop, but we will cover that in a later lesson, after we have learnt about lists.</p>
+
+<h3>Conclusion</h3>
+<p>And that is lesson 4! In lesson 5, we get into user interaction, and writing programs that actually serve a purpose. Can't wait!</p>
+<p>Thanks to all,</p>
+<p>sthurlow.com</p>
+
+</div></div></body>
+</html>

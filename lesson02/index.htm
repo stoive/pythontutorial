@@ -1,0 +1,236 @@
+<html>
+<head>
+<title>Lesson 2 - Very simple 'programs'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="keywords" content="civilization,civ2,civ3,civ4,civilization iii,civilization ii,civilization iv,mod,python,xml,script,install" />
+<meta name="description" content="A Python and XML tutorial aimed at Civilization IV modding" />
+</head><link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+
+<body bgcolor="Teal">
+<div align="center" class="SidePanel">
+<div align="left" class="PaddingBig">
+<div class="MenuSection">
+<h1>Sthurlow.com</h1>
+<h2>Civilization IV Python tutorial</h2><h3>The Python Tutorial</h3>
+<p>The original sthurlow.com python tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson01/">Installing Python</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson02/">Very Simple Programs</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson03/">Variables, Scripts</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson04/">Loops, Conditionals</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson05/">Functions</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson06/">Tuples, Lists, Dictionaries</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson07/">for Loop</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson08/">Classes</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson09/">Importing Modules</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson10/">File I/O</a></div>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/python/lesson11/">Error Handling</a></div>
+</p>
+<h3>The Civ4 Programming Tutorial</h3>
+<p>All new Civ4 programming tutorial</p>
+<p>
+<div class="MenuItem">&nbsp;<a href="http://www.sthurlow.com/">Lesson 1 (not released)</a></div>
+</p>
+<br /><br /></div></div>
+</div>
+
+<div align="center" class="TextPanel">
+<div align="left" class="Padding"><h2>Very simple 'programs'</h2>
+
+<h3>Introduction</h3>
+<p>OK! We have python installed, now what? Well, we program!</p>
+<p>And it is that simple (at least for now). Python makes it easy to run single lines of code - one-liner programs. Lets give it a go.</p>
+
+<h3>Opening IDLE</h3>
+<p>Go to the start menu, find Python, and run the program labelled 'IDLE' (Stands for Integrated Development Environment.</p>
+<p>Now you are in the IDLE environment. This is the place you will be spending most time in. Here you can open a new window to write a program, or you can simply mess around with single lines of code, which is what we are going to do. Type the following and press enter: (don't type >>> as it should already be there)</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 1 - Hello, World!</div>
+<div align="left" class="CodeBody">
+<pre>
+>>> print "Hello, World!"
+</pre>
+</div>
+</div><p>What happened? You just created a program, that prints the words 'Hello, World'. The IDLE environment that you are in immediately compiles whatever you have typed in. This is useful for testing things, e.g. define a few variables, and then test to see if a certain line will work. That will come in a later lesson, though.</p>
+
+<h3>Math in Python</h3>
+<p>Now try typing the stuff in bold. You should get the output shown in blue. I've given explainations in brackets.</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 2 - Maths</div>
+<div align="left" class="CodeBody">
+<pre>
+>>> 1 + 1
+2
+
+>>> 20+80
+100
+>>> 18294+449566
+467860
+(These are additions)
+>>> 6-5
+1
+(Subtraction)
+>>> 2*5
+10
+(Multiply, rabbits!)
+>>> 5**2
+25
+(Exponentials e.g. this one is 5 squared)
+
+>>> print "1 + 2 is an addition"
+1 + 2 is an addition
+(the print statement, which writes something onscreen)
+>>> print "one kilobyte is 2^10 bytes, or", 2**10, "bytes"
+one kilobyte is 2^10 bytes, or 1024 bytes
+(you can print sums and variables in a sentence.
+	The commas seperating each section are a way of
+	seperating clearly different things that you are printing)
+
+>>> 21/3
+7
+>>> 23/3
+7
+>>> 23.0/3.0
+7.6666...
+(division, 2nd time ignoring remainder/decimals,
+	3rd time including decimals)
+>>> 23%3
+2
+>>> 49%10
+9
+(the remainder from a division)
+</pre>
+</div>
+</div><p>As you see, there is the code, then the result of that code. I then explain them in brackets. These are the basic commands of python, and what they do. Here is a table to clarify them (because tables look cool, and make you feel smarter ;) ):</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Table 1 - Python operators</div>
+<table class="TableBody">
+<tr>
+<td class="TableContent" width="25%"><b>command</b></td>
+<td class="TableContent" width="25%"><b>name</b></td>
+<td class="TableContent" width="25%"><b>example</b></td>
+<td class="TableContent" width="25%"><b>output</b></td>
+</tr>
+<tr>
+<td class="TableContent">+</td>
+<td class="TableContent">Addition</td>
+<td class="TableContent">4+5</td>
+<td class="TableContent">9</td>
+</tr>
+<tr>
+<td class="TableContent">-</td>
+<td class="TableContent">Subtraction</td>
+<td class="TableContent">8-5</td>
+<td class="TableContent">3</td>
+</tr>
+<tr>
+<td class="TableContent">*</td>
+<td class="TableContent">Multiplication</td>
+<td class="TableContent">4*5</td>
+<td class="TableContent">20</td>
+</tr>
+<tr>
+<td class="TableContent">/</td>
+<td class="TableContent">Division</td>
+<td class="TableContent">19/3</td>
+<td class="TableContent">6</td>
+</tr>
+<tr>
+<td class="TableContent">%</td>
+<td class="TableContent">Remainder</td>
+<td class="TableContent">19%3</td>
+<td class="TableContent">5</td>
+</tr>
+<tr>
+<td class="TableContent">**</td>
+<td class="TableContent">Exponent</td>
+<td class="TableContent">2**4</td>
+<td class="TableContent">16</td>
+</tr>
+</table>
+</div><br /><p>Remember that thing called order of operation that they taught in maths? Well, it applies in python, too. Here it is, if you need reminding:</p>
+<ol>
+<li>parentheses ()</li>
+<li>exponents **</li>
+<li>multiplication *, division \, and remainder %</li>
+<li>addition + and subtraction -</li>
+</ol>
+
+<h3>Order of Operations</h3>
+<p>Here are some examples that you might want to try, if you're rusty on this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 3 - Order of Operations</div>
+<div align="left" class="CodeBody">
+<pre>
+>>> 1 + 2 * 3
+7
+>>> (1 + 2) * 3
+9
+</pre>
+</div>
+</div><p>In the first example, the computer calculates 2 * 3 first, then adds 1 to it. This is because multiplication has the higher priority (at 3) and addition is below that (at lowly 4).</p>
+<p>In the second example, the computer calculates 1 + 2 first, then multiplies it by 3. This is because parentheses (brackets, like the ones that are surrounding this interluding text ;) ) have the higher priority (at 1) and addition comes in later than that.</p>
+<p>Also remember that the math is calculated from left to right, UNLESS you put in parentheses. The innermost parentheses are calculated first. Watch these examples:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 4 - Parentheses</div>
+<div align="left" class="CodeBody">
+<pre>
+>>> 4 - 40 - 3
+-39
+>>> 4 - (40 - 3)
+-33
+</pre>
+</div>
+</div><p>In the first example, 4 -40 is calculated,then - 3 is done.</p>
+<p>In the second example, 40 - 3 is calculated, then it is subtracted from 4.</p>
+
+<h3>Comments, Please</h3>
+<p>The final thing you'll need to know to move on to multi-line programs is the comment. Type the following (and yes, the output is shown):</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 5 - comments</div>
+<div align="left" class="CodeBody">
+<pre>
+>>> #I am a comment. Fear my wrath!
+
+>>>
+</pre>
+</div>
+</div><p>A comment is a piece of code that is not run. In python, you make something a comment by putting a hash in front of it. A hash comments everything after it in the line, and nothing before it. So you could type this:</p>
+
+<div align="center">
+<div align="center" class="CodeTitle">Code Example 6 - comment examples</div>
+<div align="left" class="CodeBody">
+<pre>
+>>> print "food is very nice" #eat me
+
+food is very nice
+
+(a normal output, without the smutty comment,
+thankyou very much)
+
+>>># print "food is very nice"
+
+(nothing happens, because the code was after a comment)
+
+>>> print "food is very nice" eat me
+
+(you'll get a fairly harmless error message,
+because you didn't put your comment after a hash)
+</pre>
+</div>
+</div><p>Comments are important for adding necessary information for another programmer to read, but not the computer. For example, an explanation of a section of code, saying what it does, or what is wrong with it. You can also comment bits of code by putting a # in front of it - if you don't want it to compile, but cant delete it because you might need it later.</p>
+
+<h3>Conclusion</h3>
+<p>There you go! Lesson 2 Completed. That was even shorter than lesson 1!</p>
+<p>Next lesson, we make programs with many lines of code, and save them, so we can actually send them to people. That's right, you don't have to retype every program you run! What an amazing innovation!</p>
+<p>Thanks to all,</p>
+<p>sthurlow.com</p>
+
+</div></div></body>
+</html>
