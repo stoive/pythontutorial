@@ -15,6 +15,33 @@ is currently MIT (see LICENSE.mit) and Creative Commons Attribution Australia
 
 So. It has come to this. Fork me, biatches!
 
+##FAQ
+
+###Your code is awful and you suck.
+
+That's not a question, but okay. I acknowledge that this code is awful, and as
+a high school kid learning programming, I sucked at many things. But that's
+where you can help! You could help fix one of many things:
+
+* The styling
+* The code formatting
+* The absent DOCTYPE
+* The strange XML-ish intermediary format
+* The typographical errors
+* The missing content
+* The sometimes awkward phrases (though this is supposed to be *fun*, y'know)
+
+###What can I do to it?
+
+Whatever you want, within the License.
+
+###What are you going to do?
+
+I will continue to host the site. I will obviously security review the code
+before publishing. I may contribute to any of the aforementioned things that
+need fixing. However, it's been years (and dozens of ignored emails) since
+I've touched this, so if yesterday's weather holds true, well, you know what
+to expect.
 
 
 
